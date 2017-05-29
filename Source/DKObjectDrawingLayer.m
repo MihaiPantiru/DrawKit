@@ -1455,6 +1455,7 @@ enum {
 {
 #pragma unused(sender)
 
+    /*
 	if ([self lockedOrHidden])
 		return;
 
@@ -1487,7 +1488,7 @@ enum {
 			[self exchangeSelectionWithObjectsFromArray:objects];
 		}
 		else
-		 */
+		 //
 		{
 			// for repeated pastes, calculate the desired paste origin. Use the original bounds if possible for
 			// most accurate positioning when pasting. Calculated bounds may differ as layer, etc not present.
@@ -1574,6 +1575,7 @@ enum {
 		[self scrollToSelectionInView:view];
 		[self commitSelectionUndoWithActionName:NSLocalizedString(@"Paste Image", @"undo string for paste image")];
 	}
+*/
 }
 
 /** @brief Performs a delete operation
@@ -2384,11 +2386,13 @@ enum {
 			[am release];
 		}
 	} else {
+        /*
 		item = [contextmenu addItemWithTitle:NSLocalizedString(@"Paste", @"menu item for Paste")
 									  action:@selector(paste:)
 							   keyEquivalent:@"v"];
 		[item setTarget:self];
 		[item setTag:kDKPasteCommandContextualMenuTag];
+         */
 	}
 
 	return [contextmenu autorelease];

@@ -1323,9 +1323,10 @@ static NSString* sDefault_string = @"Double-click to edit this text";
 	[[theMenu addItemWithTitle:NSLocalizedString(@"Fit To Text", @"menu item for fit to text")
 						action:@selector(fitToText:)
 				 keyEquivalent:@""] setTarget:self];
-	[[theMenu addItemWithTitle:NSLocalizedString(@"Paste", @"menu item for Paste")
+    /*[[theMenu addItemWithTitle:NSLocalizedString(@"Paste", @"menu item for Paste")
 						action:@selector(paste:)
 				 keyEquivalent:@""] setTarget:self];
+     */
 
 	NSMenu* fm = [[[NSFontManager sharedFontManager] fontMenu:YES] copy];
 	[[theMenu addItemWithTitle:NSLocalizedString(@"Font", @"menu item for Font")

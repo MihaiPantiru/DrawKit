@@ -339,7 +339,6 @@ Text shapes are shapes that draw text.
 - (IBAction)convertToShapeGroup:(id)sender;
 - (IBAction)convertToTextPath:(id)sender;
 
-- (IBAction)paste:(id)sender;
 - (IBAction)capitalize:(id)sender;
 
 - (IBAction)takeTextAlignmentFromSender:(id)sender;

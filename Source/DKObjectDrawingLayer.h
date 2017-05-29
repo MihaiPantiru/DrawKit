@@ -525,13 +525,6 @@ selected state.
  */
 - (IBAction)copy:(id)sender;
 
-/** @brief Perform a paste
-
- Pastes from the general pasteboard
- @param sender the action's sender
- */
-- (IBAction)paste:(id)sender;
-
 /** @brief Performs a delete operation
  @param sender the action's sender
  */

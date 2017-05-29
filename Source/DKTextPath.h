@@ -134,7 +134,6 @@ Very similar to a DKTextShape but based on a path and defaulting to text-on-a-pa
 - (IBAction)convertToTextShape:(id)sender;
 - (IBAction)convertToPath:(id)sender;
 
-- (IBAction)paste:(id)sender;
 - (IBAction)capitalize:(id)sender;
 
 - (IBAction)takeTextAlignmentFromSender:(id)sender;
