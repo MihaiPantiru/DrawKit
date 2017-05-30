@@ -218,7 +218,7 @@ static NSColor* sInfoWindowColour = nil;
 - (void)drawControlPointsOfPath:(NSBezierPath*)path usingKnobs:(DKKnob*)knobs
 {
 	// draws the control points of the entire path using the knobs supplied.
-
+/*
 	NSBezierPathElement et;
 	NSPoint ap[3];
 	NSPoint lp;
@@ -349,6 +349,7 @@ static NSColor* sInfoWindowColour = nil;
 #endif
 		}
 	}
+ */
 }
 
 /** @brief Given a set of rects as NSValue objects, this invalidates them
@@ -2371,6 +2372,8 @@ finish:
 							inPart:partcode
 							 event:evt];
 	} else {
+        
+        /*
 		BOOL ctrl = (([evt modifierFlags] & NSControlKeyMask) != 0);
 		mp = [self snappedMousePoint:mp
 					 withControlFlag:ctrl];
@@ -2381,14 +2384,13 @@ finish:
 		// if the class is set to show size info when resizing, set up an info window now to do that.
 
 		if ([[self class] displaysSizeInfoWhenDragging]) {
-            /*
 			NSPoint gridPt = [self convertPointToDrawing:mp];
 			NSString* abbrUnits = [[self drawing] abbreviatedDrawingUnits];
 
 			[[self layer] showInfoWindowWithString:[NSString stringWithFormat:@"x: %.2f%@\ny: %.2f%@", gridPt.x, abbrUnits, gridPt.y, abbrUnits]
 										   atPoint:mp];
-             */
-		}
+         
+		}*/
 
 		[self setMouseHasMovedSinceStartOfTracking:YES];
 	}

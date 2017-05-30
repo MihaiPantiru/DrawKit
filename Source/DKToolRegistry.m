@@ -228,7 +228,7 @@ static DKToolRegistry* s_toolRegistry = nil;
 	dt = [[DKSelectAndEditTool alloc] init];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardSelectionToolName];
-	[dt setKeyboardEquivalent:@" "
+	[dt setKeyboardEquivalent:@"v"
 				modifierFlags:0];
 	[dt release];
 }
