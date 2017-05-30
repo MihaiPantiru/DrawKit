@@ -59,7 +59,8 @@ static NSDictionary* s_interconversionTable = nil;
  @return YES to show the info, NO to not show it */
 + (BOOL)displaysSizeInfoWhenDragging
 {
-	return ![[NSUserDefaults standardUserDefaults] boolForKey:kDKDragFeedbackEnabledPreferencesKey];
+    return NO;
+	//return ![[NSUserDefaults standardUserDefaults] boolForKey:kDKDragFeedbackEnabledPreferencesKey];
 }
 
 /** @brief Set whether an info floater is displayed when resizing an object
@@ -68,7 +69,7 @@ static NSDictionary* s_interconversionTable = nil;
  @param doesDisplay YES to show the info, NO to not show it */
 + (void)setDisplaysSizeInfoWhenDragging:(BOOL)doesDisplay
 {
-	[[NSUserDefaults standardUserDefaults] setBool:!doesDisplay
+	[[NSUserDefaults standardUserDefaults] setBool:YES
 											forKey:kDKDragFeedbackEnabledPreferencesKey];
 }
 

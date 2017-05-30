@@ -100,20 +100,6 @@ to attach arbitrary data to any drawable object.
  */
 + (NSColor*)ghostColour;
 
-// pasteboard types for drag/drop:
-
-+ (NSArray*)pasteboardTypesForOperation:(DKPasteboardOperationType)op;
-+ (NSArray*)nativeObjectsFromPasteboard:(NSPasteboard*)pb;
-
-/** @brief Return the number of native objects held by the pasteboard
-
- This efficiently queries the info object rather than dearchiving the objects themselves. A value
- of 0 means no native objects on the pasteboard (naturally)
- @param pb the pasteboard to read from
- @return a count
- */
-+ (NSUInteger)countOfNativeObjectsOnPasteboard:(NSPasteboard*)pb;
-
 // interconversion table used when changing one drawable into another - can be customised
 
 /** @brief Return the interconversion table

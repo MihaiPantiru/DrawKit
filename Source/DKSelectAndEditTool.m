@@ -14,6 +14,8 @@
 #import "LogEvent.h"
 #import "NSAffineTransform+DKAdditions.h"
 #import "DKUndoManager.h"
+#import "DKTextShape.h"
+#import "DKTextPath.h"
 
 @interface DKSelectAndEditTool (Private)
 
@@ -34,6 +36,7 @@ NSString* kDKSelectionToolWillStartMovingObjects = @"kDKSelectionToolWillStartMo
 NSString* kDKSelectionToolDidFinishMovingObjects = @"kDKSelectionToolDidFinishMovingObjects";
 NSString* kDKSelectionToolWillStartEditingObject = @"kDKSelectionToolWillStartEditingObject";
 NSString* kDKSelectionToolDidFinishEditingObject = @"kDKSelectionToolDidFinishEditingObject";
+NSString* kDKSelectionToolWillStartEditingText = @"kDKSelectionToolWillStartEditingText";
 
 // user info dict keys
 
@@ -916,6 +919,7 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 		// if the layer kind is not an object layer, the tool cannot be applied so set its mode to invalid
 
 		[self setOperationMode:kDKEditToolInvalidMode];
+        mShouldPassDrag = YES;
 	} else {
 		// layer type is OK. Whether we will move, select or edit depends on what was initially hit and the current selection state.
 
@@ -924,14 +928,18 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 		if (obj == nil) {
 			// no initial target object, so the tool simply implements a drag selection
 
+            
+            mShouldPassDrag = YES;
 			[self setOperationMode:kDKEditToolSelectionMode];
 			mAnchorPoint = mLastPoint = p;
-			mMarqueeRect = NSRectFromTwoPoints(p, p);
+			//mMarqueeRect = NSRectFromTwoPoints(p, p);
 
-			[[NSNotificationCenter defaultCenter] postNotificationName:kDKSelectionToolWillStartSelectionDrag
-																object:self
-															  userInfo:userInfoDict];
+			//[[NSNotificationCenter defaultCenter] postNotificationName:kDKSelectionToolWillStartSelectionDrag
+			//													object:self
+			//												  userInfo:userInfoDict];
 		} else {
+             mShouldPassDrag = NO;
+            
 			// a target object was supplied. The tool will either move it (and optionally other selected ones), or edit it by dragging its
 			// knobs. If the object is locked it can still be selected but not moved or resized, so it makes more sense to switch to a marquee drag in this case.
 
@@ -1032,6 +1040,10 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 	}
 
 	return mPartcode;
+}
+
+- (BOOL)shouldPassDrag {
+    return mShouldPassDrag;
 }
 
 /** @brief Handle the mouse dragged event
@@ -1144,10 +1156,8 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 - (void)drawRect:(NSRect)aRect inView:(NSView*)aView
 {
 #pragma unused(aRect)
-
-	if ([self operationMode] == kDKEditToolSelectionMode)
-		[self drawMarqueeInView:(DKDrawingView*)aView];
-	else if (mInProxyDrag && mProxyDragImage != nil) {
+    
+    if (mInProxyDrag && mProxyDragImage != nil) {
 		// need to flip the image if needed
 
 		SAVE_GRAPHICS_CONTEXT //[NSGraphicsContext saveGraphicsState];

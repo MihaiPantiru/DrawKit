@@ -709,14 +709,6 @@ because it's an all-or-nothing rendering proposition which direct drawing of a l
  */
 - (NSEnumerator*)objectBottomToTopEnumerator;
 
-/** @brief Unarchive a list of objects from the pasteboard, if possible
-
- This factors the dearchiving of objects from the pasteboard. If the pasteboard does not contain
- any valid types, nil is returned
- @param pb the pasteboard to take objects from
- @return a list of objects
- */
-- (NSArray*)nativeObjectsFromPasteboard:(NSPasteboard*)pb;
 
 @end
 

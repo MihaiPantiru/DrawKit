@@ -2427,8 +2427,9 @@ enum {
 	}
 }
 
-- (NSArray*)pasteboardTypesForOperation:(DKPasteboardOperationType)op
-{
+- (NSArray*)pasteboardTypesForOperation:(DKPasteboardOperationType)op {
+    return nil;
+    
 	// if drag-targeting of objects is allowed, this adds the types declared by the objects to the types declared by the
 	// layer itself. Currently only drag receives are allowed.
 
@@ -2787,6 +2788,8 @@ enum {
 	}
 
 	if (action == @selector(paste:)) {
+        return NO; //Snappy - Disable past
+        
 		return ([[NSPasteboard generalPasteboard] availableTypeFromArray:[self pasteboardTypesForOperation:kDKReadableTypesForPaste]] != nil);
 	}
 

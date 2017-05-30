@@ -28,7 +28,7 @@ NSString* kDKTextAllowsInlineImagesDefaultsKey = @"DKTextAllowsInlineImages";
 
 #pragma mark Static Vars
 
-static NSString* sDefault_string = @"Double-click to edit this text";
+static NSString* sDefault_string = @"Double-click to edit";
 
 @interface DKTextShape (Private)
 
@@ -1027,13 +1027,17 @@ static NSString* sDefault_string = @"Double-click to edit this text";
 #pragma mark -
 - (IBAction)paste:(id)sender
 {
+    
+    //Snappy - Disable past
 #pragma unused(sender)
 
+    /*
 	if (![self locked] && [self canPasteText:[NSPasteboard generalPasteboard]]) {
 		[self pasteTextFromPasteboard:[NSPasteboard generalPasteboard]
 					 ignoreFormatting:NO];
 		[[self undoManager] setActionName:NSLocalizedString(@"Paste Text", @"undo string for paste text into text shape")];
 	}
+     */
 }
 
 - (IBAction)capitalize:(id)sender
@@ -1298,12 +1302,20 @@ static NSString* sDefault_string = @"Double-click to edit this text";
 
 - (void)objectDidBecomeSelected
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kDKSelectionToolWillStartEditingText"
+                                                        object:self
+                                                      userInfo:nil];
+    
 	[super objectDidBecomeSelected];
 	[self updateFontPanel];
 }
 
 - (void)objectIsNoLongerSelected
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kDKSelectionToolDidEndEditingText"
+                                                        object:self
+                                                      userInfo:nil];
+    
 	[super objectIsNoLongerSelected];
 	[self endEditing];
 }

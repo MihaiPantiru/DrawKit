@@ -1143,6 +1143,9 @@ static Class s_textEditorClass = Nil;
  */
 - (void)keyDown:(NSEvent*)event
 {
+    
+    NSLog(@"Key downs %@", event.description);
+    
 	if ([[self controller] respondsToSelector:@selector(keyDown:)])
 		[(NSResponder*)[self controller] keyDown:event];
 	else
@@ -1175,11 +1178,13 @@ static Class s_textEditorClass = Nil;
 
 	if (t > mLastMouseDragTime + 0.025) {
 		mLastMouseDragTime = t;
-
-		[self updateRulerMouseTracking:[event locationInWindow]];
 		[self postMouseLocationInfo:kDKDrawingMouseDraggedLocation
 							  event:event];
-		[[self controller] mouseDragged:event];
+        
+		BOOL dragUsed = [[self controller] mouseDragged:event];
+        if (dragUsed == NO) {
+            [super mouseDragged:event];
+        }
 	}
 }
 

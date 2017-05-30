@@ -12,8 +12,6 @@
 		76FC0A6A1AFCFF7F005277C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76FC0A691AFCFF7F005277C4 /* Images.xcassets */; };
 		76FC0A6D1AFCFF80005277C4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FC0A6B1AFCFF80005277C4 /* MainMenu.xib */; };
 		76FC0A791AFCFF80005277C4 /* drawkit_no_codeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FC0A781AFCFF80005277C4 /* drawkit_no_codeTests.m */; };
-		76FC0A8D1AFCFF9E005277C4 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FC0A881AFCFF91005277C4 /* DKDrawKit.framework */; };
-		76FC0A8F1AFCFFAC005277C4 /* DKDrawKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76FC0A881AFCFF91005277C4 /* DKDrawKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,26 +22,19 @@
 			remoteGlobalIDString = 76FC0A5E1AFCFF7F005277C4;
 			remoteInfo = "drawkit-no-code";
 		};
-		76FC0A871AFCFF91005277C4 /* PBXContainerItemProxy */ = {
+		AE5402151EDC179400F7FFB7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 76FC0A821AFCFF91005277C4 /* DrawKit.xcodeproj */;
+			containerPortal = AE5402101EDC179400F7FFB7 /* DrawKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9660E6100BEF442B00B6A38C;
 			remoteInfo = DrawKit;
 		};
-		76FC0A891AFCFF91005277C4 /* PBXContainerItemProxy */ = {
+		AE5402171EDC179400F7FFB7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 76FC0A821AFCFF91005277C4 /* DrawKit.xcodeproj */;
+			containerPortal = AE5402101EDC179400F7FFB7 /* DrawKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BF2EE49B0F66011D00B8CFFD;
 			remoteInfo = DKUnitTests;
-		};
-		76FC0A8B1AFCFF99005277C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 76FC0A821AFCFF91005277C4 /* DrawKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = DrawKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -54,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				76FC0A8F1AFCFFAC005277C4 /* DKDrawKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +61,7 @@
 		76FC0A721AFCFF80005277C4 /* drawkit-no-codeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "drawkit-no-codeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FC0A771AFCFF80005277C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76FC0A781AFCFF80005277C4 /* drawkit_no_codeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = drawkit_no_codeTests.m; sourceTree = "<group>"; };
-		76FC0A821AFCFF91005277C4 /* DrawKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawKit.xcodeproj; path = ../../framework/DrawKit.xcodeproj; sourceTree = "<group>"; };
+		AE5402101EDC179400F7FFB7 /* DrawKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawKit.xcodeproj; path = /Users/xcode/ForkedDrawKit/DrawKit.xcodeproj; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76FC0A8D1AFCFF9E005277C4 /* DKDrawKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +88,7 @@
 				76FC0A611AFCFF7F005277C4 /* drawkit-no-code */,
 				76FC0A751AFCFF80005277C4 /* drawkit-no-codeTests */,
 				76FC0A601AFCFF7F005277C4 /* Products */,
-				76FC0A821AFCFF91005277C4 /* DrawKit.xcodeproj */,
+				AE5402101EDC179400F7FFB7 /* DrawKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,11 +139,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		76FC0A831AFCFF91005277C4 /* Products */ = {
+		AE5402111EDC179400F7FFB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76FC0A881AFCFF91005277C4 /* DKDrawKit.framework */,
-				76FC0A8A1AFCFF91005277C4 /* DKUnitTests.octest */,
+				AE5402161EDC179400F7FFB7 /* DKDrawKit.framework */,
+				AE5402181EDC179400F7FFB7 /* DKUnitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,7 +163,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				76FC0A8C1AFCFF99005277C4 /* PBXTargetDependency */,
 			);
 			name = "drawkit-no-code";
 			productName = "drawkit-no-code";
@@ -230,8 +218,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 76FC0A831AFCFF91005277C4 /* Products */;
-					ProjectRef = 76FC0A821AFCFF91005277C4 /* DrawKit.xcodeproj */;
+					ProductGroup = AE5402111EDC179400F7FFB7 /* Products */;
+					ProjectRef = AE5402101EDC179400F7FFB7 /* DrawKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -243,18 +231,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		76FC0A881AFCFF91005277C4 /* DKDrawKit.framework */ = {
+		AE5402161EDC179400F7FFB7 /* DKDrawKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = DKDrawKit.framework;
-			remoteRef = 76FC0A871AFCFF91005277C4 /* PBXContainerItemProxy */;
+			remoteRef = AE5402151EDC179400F7FFB7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		76FC0A8A1AFCFF91005277C4 /* DKUnitTests.octest */ = {
+		AE5402181EDC179400F7FFB7 /* DKUnitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = DKUnitTests.octest;
-			remoteRef = 76FC0A891AFCFF91005277C4 /* PBXContainerItemProxy */;
+			remoteRef = AE5402171EDC179400F7FFB7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -303,11 +291,6 @@
 			isa = PBXTargetDependency;
 			target = 76FC0A5E1AFCFF7F005277C4 /* drawkit-no-code */;
 			targetProxy = 76FC0A731AFCFF80005277C4 /* PBXContainerItemProxy */;
-		};
-		76FC0A8C1AFCFF99005277C4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DrawKit;
-			targetProxy = 76FC0A8B1AFCFF99005277C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -877,6 +877,9 @@ static BOOL sWasInside = NO;
  */
 - (void)mouseDragged:(NSEvent*)event inView:(NSView*)view
 {
+    
+    NSLog(@"drag - guidelayer");
+    
 	if (![self locked] && m_dragGuideRef != nil) {
 		NSPoint p = [view convertPoint:[event locationInWindow]
 							  fromView:nil];
@@ -903,6 +906,7 @@ static BOOL sWasInside = NO;
 
 		// get the grid conversion for the guide's location:
 
+        /*
 		NSPoint gp = [[[self drawing] gridLayer] gridLocationForPoint:p];
 		[self repositionGuide:m_dragGuideRef
 					  atPoint:p
@@ -916,7 +920,7 @@ static BOOL sWasInside = NO;
 			if ([self showsDragInfoWindow])
 				[self showInfoWindowWithString:[NSString stringWithFormat:@"%.2f", gp.y]
 									   atPoint:p];
-		}
+		}*/
 	}
 }
 

@@ -1145,7 +1145,7 @@ static DKLayerCacheOption sDefaultCacheOption = kDKLayerCacheNone;
  */
 - (NSArray*)nativeObjectsFromPasteboard:(NSPasteboard*)pb
 {
-	return [DKDrawableObject nativeObjectsFromPasteboard:pb];
+    return nil; //[DKDrawableObject nativeObjectsFromPasteboard:pb];
 }
 
 /** @brief Add objects to the layer from the pasteboard
@@ -1162,7 +1162,7 @@ static DKLayerCacheOption sDefaultCacheOption = kDKLayerCacheNone;
 - (void)addObjects:(NSArray*)objects fromPasteboard:(NSPasteboard*)pb atDropLocation:(NSPoint)p
 {
 #pragma unused(pb)
-
+   /*
 	if ([self lockedOrHidden])
 		return;
 
@@ -1208,6 +1208,7 @@ static DKLayerCacheOption sDefaultCacheOption = kDKLayerCacheNone;
 	}
 
 	[self addObjectsFromArray:objects];
+    */
 }
 
 /** @brief Establish the paste offset - a value used to position items when pasting and duplicating
@@ -1838,8 +1839,9 @@ static DKLayerCacheOption sDefaultCacheOption = kDKLayerCacheNone;
  @param op a set of flags indicating what operation the types should be relevant to. This is arranged
  @return an array of acceptable pasteboard data types for the given operation in preferred order
  */
-- (NSArray*)pasteboardTypesForOperation:(DKPasteboardOperationType)op
-{
+- (NSArray*)pasteboardTypesForOperation:(DKPasteboardOperationType)op {
+    return nil;
+    
 	// we can always cut/paste and drag/drop our native type:
 
 	NSMutableArray* types = [NSMutableArray arrayWithObject:kDKDrawableObjectPasteboardType];

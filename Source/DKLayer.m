@@ -1156,6 +1156,7 @@ static NSArray* s_selectionColours = nil;
  */
 - (void)showInfoWindowWithString:(NSString*)str atPoint:(NSPoint)p
 {
+    /*
 	if (m_infoWindow == nil) {
 		m_infoWindow = [[GCInfoFloater infoFloater] retain];
 		[m_infoWindow setFormat:nil];
@@ -1167,6 +1168,7 @@ static NSArray* s_selectionColours = nil;
 	[m_infoWindow positionNearPoint:p
 							 inView:[self currentView]];
 	[m_infoWindow show];
+     */
 }
 
 /** @brief Sets the background colour of the small floating info window
@@ -1174,6 +1176,7 @@ static NSArray* s_selectionColours = nil;
  */
 - (void)setInfoWindowBackgroundColour:(NSColor*)colour
 {
+    /*
 	if (m_infoWindow == nil) {
 		m_infoWindow = [[GCInfoFloater infoFloater] retain];
 		[m_infoWindow setFormat:nil];
@@ -1183,6 +1186,7 @@ static NSArray* s_selectionColours = nil;
 
 	if (colour != nil)
 		[m_infoWindow setBackgroundColor:colour];
+     */
 }
 
 /** @brief Hides the info window if it's visible

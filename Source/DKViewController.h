@@ -172,7 +172,7 @@ completed except for page breaks. Tool controllers for example can draw selectio
 /** @brief Handle the mouse dragged event
  @param event the event
  */
-- (void)mouseDragged:(NSEvent*)event;
+- (BOOL)mouseDragged:(NSEvent*)event;
 
 /** @brief Handle the mouse up event
 

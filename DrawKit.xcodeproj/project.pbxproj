@@ -1612,7 +1612,8 @@
 				GCC_PREFIX_HEADER = Source/DKDrawKit_Prefix.pch;
 				HEADER_SEARCH_PATHS = "ThirdParty/**";
 				INFOPLIST_FILE = Source/DrawKitInfo.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				NSZombieEnabled = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.drawkit;
 				PRODUCT_NAME = DKDrawKit;
@@ -1636,6 +1637,7 @@
 				GCC_PREFIX_HEADER = Source/DKDrawKit_Prefix.pch;
 				INFOPLIST_FILE = Source/DrawKitInfo.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.drawkit;
 				PRODUCT_NAME = DKDrawKit;
 				WRAPPER_EXTENSION = framework;
@@ -1681,7 +1683,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -1724,7 +1726,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = macosx;
 			};
 			name = Release;

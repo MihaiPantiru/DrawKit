@@ -258,11 +258,13 @@ static NSTimer* s_autoscrollTimer = nil;
 /** @brief Handle the mouse dragged event
  @param event the event
  */
-- (void)mouseDragged:(NSEvent*)event
+- (BOOL)mouseDragged:(NSEvent*)event
 {
 	if (![[self activeLayer] lockedOrHidden])
 		[[self activeLayer] mouseDragged:event
 								  inView:[self view]];
+    
+    return true;
 }
 
 /** @brief Handle the mouse up event

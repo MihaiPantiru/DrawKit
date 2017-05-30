@@ -1435,6 +1435,7 @@ static NSSize sTempSavedOffset;
  */
 - (void)updateInfoForOperation:(DKShapeEditOperation)op atPoint:(NSPoint)mp
 {
+    /*
 	if ([[self class] displaysSizeInfoWhenDragging]) {
 		NSString* infoStr;
 		NSString* fmt1, *fmt2;
@@ -1464,6 +1465,7 @@ static NSSize sTempSavedOffset;
 		[[self layer] showInfoWindowWithString:infoStr
 									   atPoint:mp];
 	}
+     */
 }
 
 #pragma mark -
@@ -1800,6 +1802,8 @@ static NSSize sTempSavedOffset;
 + (NSArray*)pasteboardTypesForOperation:(DKPasteboardOperationType)op
 {
 #pragma unused(op)
+    return nil; //Snappy - disable paste
+    
 	return [NSArray arrayWithObjects:NSColorPboardType, NSPDFPboardType, NSTIFFPboardType, NSFilenamesPboardType,
 									 NSStringPboardType, kDKStyleKeyPasteboardType, kDKStylePasteboardType, nil];
 }

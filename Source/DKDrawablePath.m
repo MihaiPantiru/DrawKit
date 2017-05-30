@@ -2071,6 +2071,8 @@ finish:
 + (NSArray*)pasteboardTypesForOperation:(DKPasteboardOperationType)op
 {
 #pragma unused(op)
+    return nil; //Snappy - disable paste
+    
 	return [NSArray arrayWithObjects:NSColorPboardType, NSStringPboardType, NSPDFPboardType, NSTIFFPboardType,
 									 NSFilenamesPboardType, kDKStylePasteboardType, kDKStyleKeyPasteboardType, nil];
 }
@@ -2379,11 +2381,13 @@ finish:
 		// if the class is set to show size info when resizing, set up an info window now to do that.
 
 		if ([[self class] displaysSizeInfoWhenDragging]) {
+            /*
 			NSPoint gridPt = [self convertPointToDrawing:mp];
 			NSString* abbrUnits = [[self drawing] abbreviatedDrawingUnits];
 
 			[[self layer] showInfoWindowWithString:[NSString stringWithFormat:@"x: %.2f%@\ny: %.2f%@", gridPt.x, abbrUnits, gridPt.y, abbrUnits]
 										   atPoint:mp];
+             */
 		}
 
 		[self setMouseHasMovedSinceStartOfTracking:YES];

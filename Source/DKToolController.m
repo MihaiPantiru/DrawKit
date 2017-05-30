@@ -524,7 +524,7 @@ static DKDrawingTool* sGlobalTool = nil;
 	// can the tool be used in this layer anyway?
 
 	if ([ct isValidTargetLayer:[self activeLayer]]) {
-		[self startAutoscrolling];
+		//[self startAutoscrolling];
 
 		BOOL isObjectLayer = [[self activeLayer] isKindOfClass:[DKObjectDrawingLayer class]];
 
@@ -578,10 +578,9 @@ static DKDrawingTool* sGlobalTool = nil;
  ensure that other layer types work normally.
  @param event the event
  */
-- (void)mouseDragged:(NSEvent*)event
-{
+- (BOOL)mouseDragged:(NSEvent*)event {
 	if (mAbortiveMouseDown)
-		return;
+		return NO;
 
 	DKDrawingTool* ct = [self drawingTool];
 
@@ -589,7 +588,14 @@ static DKDrawingTool* sGlobalTool = nil;
 		[mDragEvent release];
 		mDragEvent = [event retain];
 	}
-
+    
+    if ([ct isKindOfClass:[DKSelectAndEditTool class]]) {
+        DKSelectAndEditTool *selectionTool = (DKSelectAndEditTool *)ct;
+        if ([selectionTool shouldPassDrag] == YES) {
+            return NO;
+        }
+    }
+    
 	if ([event clickCount] <= 1) {
 		NSAssert(ct != nil, @"nil drawing tool for mouse drag");
 
@@ -615,6 +621,8 @@ static DKDrawingTool* sGlobalTool = nil;
 			[self stopAutoscrolling];
 		}
 	}
+    
+    return YES;
 }
 
 /** @brief Handle the mouse up event
@@ -751,6 +759,8 @@ static DKDrawingTool* sGlobalTool = nil;
 	} else {
 		@try
 		{
+            NSLog(@"key downs sent to view event = %@", event);
+            
 			[[self view] interpretKeyEvents:[NSArray arrayWithObject:event]];
 		}
 		@catch (NSException* excp)
