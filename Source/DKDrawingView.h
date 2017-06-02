@@ -340,3 +340,6 @@ extern NSString* kDKDrawingViewHorizontalRightMarkerName;
 extern NSString* kDKDrawingViewVerticalTopMarkerName;
 extern NSString* kDKDrawingViewVerticalCentreMarkerName;
 extern NSString* kDKDrawingViewVerticalBottomMarkerName;
+
+extern NSString* kDKDrawingViewShouldAvoidMoving;
+extern NSString* kDKDrawingViewShouldPerformMoving;

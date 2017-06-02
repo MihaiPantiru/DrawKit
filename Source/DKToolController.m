@@ -501,7 +501,7 @@ static DKDrawingTool* sGlobalTool = nil;
  ensure that autscrolling and targeting of other layer types works normally.
  @param event the event
  */
-- (void)mouseDown:(NSEvent*)event
+- (BOOL)mouseDown:(NSEvent*)event
 {
 	LogEvent_(kInfoEvent, @"tool controller mouse down");
 
@@ -539,6 +539,8 @@ static DKDrawingTool* sGlobalTool = nil;
 		target = [(DKObjectDrawingLayer*)[self activeLayer] hitTest:p];
 
 		// start the tool:
+        
+        NSLog(@"DrawKit - target here %@", target);
 
 		@try
 		{
@@ -551,6 +553,16 @@ static DKDrawingTool* sGlobalTool = nil;
 									   layer:[self activeLayer]
 									   event:event
 									delegate:self];
+            
+            NSLog(@"DraKit - mpartcode %d", mPartcode);
+            
+            if (mPartcode == 0) {
+                NSLog(@"DraKit - mpartcode return true");
+                 return true;
+            } else {
+                NSLog(@"DraKit - mpartcode return false");
+                return false;
+            }
 		}
 		@catch (NSException* excp)
 		{
@@ -564,11 +576,18 @@ static DKDrawingTool* sGlobalTool = nil;
 
 			mAbortiveMouseDown = YES;
 		}
+        
+         NSLog(@"DraKit - mpartcode  2 return false");
+        
+        return false;
 	} else {
 		// tool not applicable to the active layer - defer to the view controller. Some layers (e.g. guides) will
 		// always cause this to occur as they work the same way regardless of the current tool. So don't beep here.
 
 		[super mouseDown:event];
+        
+        NSLog(@"DraKit - mpartcode  2 return true");
+        return true;
 	}
 }
 

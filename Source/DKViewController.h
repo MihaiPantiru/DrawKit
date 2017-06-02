@@ -167,7 +167,7 @@ completed except for page breaks. Tool controllers for example can draw selectio
  startAutoscrolling on mouseDown.
  @param event the event
  */
-- (void)mouseDown:(NSEvent*)event;
+- (BOOL)mouseDown:(NSEvent*)event;
 
 /** @brief Handle the mouse dragged event
  @param event the event

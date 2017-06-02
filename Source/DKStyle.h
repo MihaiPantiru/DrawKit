@@ -51,6 +51,7 @@ typedef enum {
 
 + (DKStyle*)styleWithFillColour:(NSColor*)fc strokeColour:(NSColor*)sc;
 + (DKStyle*)styleWithFillColour:(NSColor*)fc strokeColour:(NSColor*)sc strokeWidth:(CGFloat)sw;
++ (DKStyle*)arrowStyleWithFillColour:(NSColor*)fc strokeColour:(NSColor*)sc strokeWidth:(CGFloat)sw;
 + (DKStyle*)styleFromPasteboard:(NSPasteboard*)pb;
 
 /** @brief Return a list of types supported by styles for pasteboard operations

@@ -18,6 +18,7 @@
 #import "DKUndoManager.h"
 #import "DKUniqueID.h"
 #import "DKImageAdornment.h"
+#import "DKArrowStroke.h"
 #import "DKDrawablePath.h"
 #import "DKDrawableShape.h"
 #import "DKGeometryUtilities.h"
@@ -171,6 +172,31 @@ static BOOL sSubstitute = NO;
 	}
 
 	return [style autorelease];
+}
+
+
++ (DKStyle*)arrowStyleWithFillColour:(NSColor*)fc strokeColour:(NSColor*)sc strokeWidth:(CGFloat)sw
+{
+    if (fc == nil && sc == nil) {
+        NSLog(@"DKStyle was passed nil for both colour arguments - will substitute a light gray fill (please fix)");
+        fc = [NSColor lightGrayColor];
+    }
+    
+    DKStyle* style = [[DKStyle alloc] init];
+    
+    if (fc) {
+        DKFill* fill = [DKFill fillWithColour:fc];
+        [style addRenderer:fill];
+    }
+    
+    if (sc) {
+        DKArrowStroke* stroke = [DKArrowStroke standardDimensioningLine];
+        [stroke setWidth:sw];
+        [stroke setColour:sc];
+        [style addRenderer:stroke];
+    }
+    
+    return [style autorelease];
 }
 
 /** @brief Creates a style from data on the pasteboard

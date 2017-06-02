@@ -237,7 +237,7 @@ static NSTimer* s_autoscrollTimer = nil;
  startAutoscrolling on mouseDown.
  @param event the event
  */
-- (void)mouseDown:(NSEvent*)event
+- (BOOL)mouseDown:(NSEvent*)event
 {
 	// if set to activate layers automatically, find the hit layer and activate it
 
@@ -245,7 +245,7 @@ static NSTimer* s_autoscrollTimer = nil;
 
 	// start the autoscroll timer:
 
-	[self startAutoscrolling];
+	//[self startAutoscrolling];
 
 	// forward the click to the active layer if it is available:
 
@@ -253,6 +253,8 @@ static NSTimer* s_autoscrollTimer = nil;
 		[[self activeLayer] mouseDown:event
 							   inView:[self view]];
 	}
+    
+    return YES;
 }
 
 /** @brief Handle the mouse dragged event

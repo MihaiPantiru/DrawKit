@@ -180,12 +180,13 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[path release];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardStraightLinePathToolName];
-	[dt setKeyboardEquivalent:@"l"
+	[dt setKeyboardEquivalent:@"a"
 				modifierFlags:0];
 	[dt release];
 
 	//-------- polygon ---------
 
+    /*
 	path = [[trueClass alloc] init];
 	[path setPathCreationMode:kDKPathCreateModePolygonCreate];
 	dt = [[DKObjectCreationTool alloc] initWithPrototypeObject:path];
@@ -195,6 +196,7 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[dt setKeyboardEquivalent:@"p"
 				modifierFlags:0];
 	[dt release];
+     */
 
 	//-------- freehand -------
 
@@ -212,6 +214,7 @@ static DKToolRegistry* s_toolRegistry = nil;
 
 	trueClass = [DKDrawableObject classForConversionRequestFor:[DKRegularPolygonPath class]];
 
+    /*
 	path = [[trueClass alloc] init];
 	[path setPathCreationMode:kDKRegularPolyCreationMode];
 	[(DKRegularPolygonPath*)path setShowsSpreadControls:YES];
@@ -222,6 +225,8 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[dt setKeyboardEquivalent:@"g"
 				modifierFlags:0];
 	[dt release];
+    */
+
 
 	// ----- select and edit tool -----
 

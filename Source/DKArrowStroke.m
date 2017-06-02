@@ -63,12 +63,12 @@ NSString* kDKDimensionUnitsKey = @"DKDimensionUnits";
 	if (dml == nil) {
 		dml = [[DKArrowStroke alloc] init];
 
-		[dml setDimensioningLineOptions:kDKDimensionPlaceAboveLine];
-		[dml setArrowHeadAtStart:kDKArrowHeadDimensionLine];
-		[dml setArrowHeadAtEnd:kDKArrowHeadDimensionLine];
+		[dml setDimensioningLineOptions:kDKDimensionNone];
+		[dml setArrowHeadAtStart:kDKArrowHeadNone];
+		[dml setArrowHeadAtEnd:kDKArrowHeadInflected];
 		[dml setWidth:1.0];
-		[dml setArrowHeadLength:12];
-		[dml setArrowHeadWidth:7];
+		[dml setArrowHeadLength:18];
+		[dml setArrowHeadWidth:10];
 	}
 
 	return dml;
@@ -148,8 +148,8 @@ NSString* kDKDimensionUnitsKey = @"DKDimensionUnits";
 
 	CGFloat w = ((sw - 1.5) * 0.4) + 1.5;
 
-	[self setArrowHeadWidth:w * 6];
-	[self setArrowHeadLength:MAX(10, w * 6)];
+	[self setArrowHeadWidth:w * 10];
+	[self setArrowHeadLength:MAX(10, w * 10)];
 }
 
 #ifdef DRAWKIT_DEPRECATED
