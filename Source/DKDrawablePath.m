@@ -1240,7 +1240,7 @@ finish:
 			if (!NSEqualPoints(p, lastPoint)) {
 				[path lineToPoint:p];
 #ifdef qUseCurveFit
-				[self setPath:curveFitPath(path, m_freehandEpsilon)];
+                [self setPath:path]; //curveFitPath(path, 2)];
 #else
 				[self invalidateCache];
 				[self notifyVisualChange];
@@ -2089,7 +2089,7 @@ finish:
 {
 	self = [super initWithStyle:aStyle];
 	if (self) {
-		m_freehandEpsilon = 2.0;
+		m_freehandEpsilon = 0.01;
 		m_editPathMode = kDKPathCreateModeEditExisting;
 	}
 

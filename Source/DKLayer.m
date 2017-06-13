@@ -1324,9 +1324,9 @@ static NSArray* s_selectionColours = nil;
 		[self setLocked:NO];
 		[self setKnobsShouldAdustToViewScale:YES];
 		[self setShouldDrawToPrinter:YES];
-		[self setSelectionColour:[[self class] selectionColourForIndex:sLayerIndexSeed++]];
+		[self setSelectionColour:[NSColor clearColor]];
 		mLayerUniqueKey = [[DKUniqueID uniqueKey] retain];
-		mRulerMarkersEnabled = YES;
+		mRulerMarkersEnabled = NO;
 		mAlpha = 1.0;
 	}
 	return self;

@@ -1166,7 +1166,7 @@ static Class s_textEditorClass = Nil;
  */
 - (void)mouseDown:(NSEvent*)event
 {
-      [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
+   //   [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
     
 	[self postMouseLocationInfo:kDKDrawingMouseDownLocation
 						  event:event];
@@ -1180,7 +1180,7 @@ static Class s_textEditorClass = Nil;
     } else {
         
         NSLog(@"Deny moving - mouse down");
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
+       // [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
     }
 }
 
@@ -1208,7 +1208,7 @@ static Class s_textEditorClass = Nil;
 //            [super mouseDragged:event];
         } else {
             NSLog(@"Deny moving - drag not used");
-            [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
+           // [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
         }
 	}
 }
