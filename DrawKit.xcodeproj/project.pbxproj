@@ -100,6 +100,14 @@
 		AA91597C0D9DFECA00905699 /* Logging.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9159780D9DFECA00905699 /* Logging.xib */; };
 		AA91597D0D9DFECA00905699 /* LogEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = AA91597A0D9DFECA00905699 /* LogEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA91597E0D9DFECA00905699 /* LogEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = AA91597B0D9DFECA00905699 /* LogEvent.m */; };
+		AE049F411EF015D6003F6BF4 /* brush.png in Resources */ = {isa = PBXBuildFile; fileRef = AE049F3B1EF015D6003F6BF4 /* brush.png */; };
+		AE049F421EF015D6003F6BF4 /* brush@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE049F3C1EF015D6003F6BF4 /* brush@2x.png */; };
+		AE049F431EF015D6003F6BF4 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = AE049F3D1EF015D6003F6BF4 /* eraser.png */; };
+		AE049F441EF015D6003F6BF4 /* eraser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE049F3E1EF015D6003F6BF4 /* eraser@2x.png */; };
+		AE049F451EF015D6003F6BF4 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = AE049F3F1EF015D6003F6BF4 /* text.png */; };
+		AE049F461EF015D6003F6BF4 /* text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE049F401EF015D6003F6BF4 /* text@2x.png */; };
+		AE049F601EF11F6C003F6BF4 /* DKNoneTool.h in Headers */ = {isa = PBXBuildFile; fileRef = AE049F5E1EF11F6C003F6BF4 /* DKNoneTool.h */; };
+		AE049F611EF11F6C003F6BF4 /* DKNoneTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE049F5F1EF11F6C003F6BF4 /* DKNoneTool.m */; };
 		BF0350330F3A93A20042C98B /* NSBezierPath+Text.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0350310F3A93A20042C98B /* NSBezierPath+Text.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF0350340F3A93A20042C98B /* NSBezierPath+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0350320F3A93A20042C98B /* NSBezierPath+Text.m */; };
 		BF0826810E11203500971D3D /* DKCropTool.h in Headers */ = {isa = PBXBuildFile; fileRef = BF08267F0E11203500971D3D /* DKCropTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -390,6 +398,14 @@
 		AA9159790D9DFECA00905699 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Logging.xib; sourceTree = "<group>"; };
 		AA91597A0D9DFECA00905699 /* LogEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEvent.h; sourceTree = "<group>"; };
 		AA91597B0D9DFECA00905699 /* LogEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEvent.m; sourceTree = "<group>"; };
+		AE049F3B1EF015D6003F6BF4 /* brush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brush.png; sourceTree = "<group>"; };
+		AE049F3C1EF015D6003F6BF4 /* brush@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brush@2x.png"; sourceTree = "<group>"; };
+		AE049F3D1EF015D6003F6BF4 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
+		AE049F3E1EF015D6003F6BF4 /* eraser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser@2x.png"; sourceTree = "<group>"; };
+		AE049F3F1EF015D6003F6BF4 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
+		AE049F401EF015D6003F6BF4 /* text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text@2x.png"; sourceTree = "<group>"; };
+		AE049F5E1EF11F6C003F6BF4 /* DKNoneTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKNoneTool.h; sourceTree = "<group>"; };
+		AE049F5F1EF11F6C003F6BF4 /* DKNoneTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKNoneTool.m; sourceTree = "<group>"; };
 		BF0350310F3A93A20042C98B /* NSBezierPath+Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+Text.h"; path = "Source/NSBezierPath+Text.h"; sourceTree = "<group>"; };
 		BF0350320F3A93A20042C98B /* NSBezierPath+Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+Text.m"; path = "Source/NSBezierPath+Text.m"; sourceTree = "<group>"; };
 		BF08267F0E11203500971D3D /* DKCropTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKCropTool.h; path = Source/DKCropTool.h; sourceTree = "<group>"; };
@@ -951,6 +967,8 @@
 				BFD8BBA00D98B8B80085549B /* DKZoomTool.m */,
 				BF08267F0E11203500971D3D /* DKCropTool.h */,
 				BF0826800E11203500971D3D /* DKCropTool.m */,
+				AE049F5E1EF11F6C003F6BF4 /* DKNoneTool.h */,
+				AE049F5F1EF11F6C003F6BF4 /* DKNoneTool.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -958,6 +976,12 @@
 		96F516CD0B89DC050047BA96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE049F3B1EF015D6003F6BF4 /* brush.png */,
+				AE049F3C1EF015D6003F6BF4 /* brush@2x.png */,
+				AE049F3D1EF015D6003F6BF4 /* eraser.png */,
+				AE049F3E1EF015D6003F6BF4 /* eraser@2x.png */,
+				AE049F3F1EF015D6003F6BF4 /* text.png */,
+				AE049F401EF015D6003F6BF4 /* text@2x.png */,
 				96F516CE0B89DC050047BA96 /* controlKnob.tif */,
 				96F516D40B89DC050047BA96 /* marker_h_centre.tif */,
 				96F516D00B89DC050047BA96 /* marker_h_left.tif */,
@@ -1223,6 +1247,7 @@
 				96F516B30B89DBBE0047BA96 /* DKDrawingTool.h in Headers */,
 				96F516C50B89DBE60047BA96 /* CurveFit.h in Headers */,
 				BFC243590BAA499C00A1AA0F /* DKCIFilterRastGroup.h in Headers */,
+				AE049F601EF11F6C003F6BF4 /* DKNoneTool.h in Headers */,
 				BF6336750BABA3AF001B5901 /* DKRastGroup.h in Headers */,
 				BF633B700BAE076E001B5901 /* DKDrawableObject+Metadata.h in Headers */,
 				BF633DDE0BAFEF4E001B5901 /* DKArrowStroke.h in Headers */,
@@ -1397,17 +1422,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE049F451EF015D6003F6BF4 /* text.png in Resources */,
 				96F516D70B89DC050047BA96 /* controlKnob.tif in Resources */,
+				AE049F431EF015D6003F6BF4 /* eraser.png in Resources */,
 				96F516D80B89DC050047BA96 /* marker_v_bottom.tif in Resources */,
 				96F516D90B89DC050047BA96 /* marker_h_left.tif in Resources */,
 				96F516DA0B89DC050047BA96 /* marker_v_top.tif in Resources */,
 				96F516DB0B89DC050047BA96 /* marker_h_right.tif in Resources */,
 				7633D31F1B7743570093DB40 /* LICENSE.txt in Resources */,
+				AE049F461EF015D6003F6BF4 /* text@2x.png in Resources */,
 				96F516DC0B89DC050047BA96 /* marker_v_centre.tif in Resources */,
 				96F516DD0B89DC050047BA96 /* marker_h_centre.tif in Resources */,
+				AE049F421EF015D6003F6BF4 /* brush@2x.png in Resources */,
+				AE049F411EF015D6003F6BF4 /* brush.png in Resources */,
 				AA89A3970D7DE9DA0092F050 /* Rect.png in Resources */,
 				AA91597C0D9DFECA00905699 /* Logging.xib in Resources */,
 				BF2EE3D20F6557C900B8CFFD /* DK_Auxiliary_Menus.xib in Resources */,
+				AE049F441EF015D6003F6BF4 /* eraser@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1535,6 +1566,7 @@
 				BF0826820E11203500971D3D /* DKCropTool.m in Sources */,
 				BF1DBA690E11F4410056EEC9 /* DKArcPath.m in Sources */,
 				BF89C0A10E20893900FD9D4A /* DKRegularPolygonPath.m in Sources */,
+				AE049F611EF11F6C003F6BF4 /* DKNoneTool.m in Sources */,
 				BF28629A0E2315FD001CD43F /* DKStyle+SimpleAccess.m in Sources */,
 				BF2865CB0E264DCF001CD43F /* DKDrawing+Export.m in Sources */,
 				BFD211AD0E2C28C80081C007 /* NSBezierPath-OAExtensions.m in Sources */,

@@ -74,10 +74,26 @@ NSString* kDKSelectionToolTargetObject = @"kDKSelectionToolTargetObject";
  This is typically called automatically by the mouseDown method according to the context of the
  initial click.
  @param op the mode to enter */
-- (void)setOperationMode:(DKEditToolOperation)op
-{
+- (void)setOperationMode:(DKEditToolOperation)op {
 	mOperationMode = op;
 
+    switch (mOperationMode) {
+        case kDKEditToolInvalidMode:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldPerformMoving object:self];
+            break;
+            
+        case kDKEditToolSelectionMode:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldPerformMoving object:self];
+            break;
+
+            
+        default:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
+            break;
+    }
+    
+    NSLog(@"select tool set op mode = %d", op);
+    
 	LogEvent_(kInfoEvent, @"select tool set op mode = %d", op);
 }
 
@@ -929,6 +945,11 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 			// no initial target object, so the tool simply implements a drag selection
 
             
+            NSLog(@"dkselect -  odl layer %@", odl);
+
+            
+            NSLog(@"wtf dkselect - object nil");
+            
             mShouldPassDrag = YES;
 			[self setOperationMode:kDKEditToolSelectionMode];
 			mAnchorPoint = mLastPoint = p;
@@ -939,6 +960,8 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 			//												  userInfo:userInfoDict];
 		} else {
              mShouldPassDrag = NO;
+            
+              NSLog(@"dkselect - object selected");
             
 			// a target object was supplied. The tool will either move it (and optionally other selected ones), or edit it by dragging its
 			// knobs. If the object is locked it can still be selected but not moved or resized, so it makes more sense to switch to a marquee drag in this case.

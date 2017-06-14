@@ -18,6 +18,7 @@
 #import "DKStyle.h"
 #import "DKRegularPolygonPath.h"
 #import "DKTextPath.h"
+#import "DKNoneTool.h"
 
 // notifications
 
@@ -25,6 +26,7 @@ NSString* kDKDrawingToolWasRegisteredNotification = @"kDKDrawingToolWasRegistere
 
 // standard tool names
 
+NSString* kDKStandardNoneToolName = @"None";
 NSString* kDKStandardSelectionToolName = @"Select";
 NSString* kDKStandardRectangleToolName = @"Rectangle";
 NSString* kDKStandardOvalToolName = @"Oval";
@@ -212,7 +214,7 @@ static DKToolRegistry* s_toolRegistry = nil;
 
 	//-------- regular polygon ---------
 
-	trueClass = [DKDrawableObject classForConversionRequestFor:[DKRegularPolygonPath class]];
+//	trueClass = [DKDrawableObject classForConversionRequestFor:[DKRegularPolygonPath class]];
 
     /*
 	path = [[trueClass alloc] init];
@@ -233,9 +235,16 @@ static DKToolRegistry* s_toolRegistry = nil;
 	dt = [[DKSelectAndEditTool alloc] init];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardSelectionToolName];
-	[dt setKeyboardEquivalent:@"v"
+	[dt setKeyboardEquivalent:@"e"
 				modifierFlags:0];
 	[dt release];
+    
+    dt = [[DKNoneTool alloc] init];
+    [self registerDrawingTool:dt
+                     withName:kDKStandardNoneToolName];
+    [dt setKeyboardEquivalent:@"v"
+                modifierFlags:0];
+    [dt release];
 }
 
 - (NSArray*)toolNames

@@ -12,6 +12,7 @@
 #import "DKStyleRegistry.h"
 #import "DKToolController.h"
 #import "LogEvent.h"
+#import "DKTextShape.h"
 
 #pragma mark Contants(Non - localized)
 NSString* kDKDrawingToolWillMakeNewObjectNotification = @"kDKDrawingToolWillMakeNewObjectNotification";
@@ -87,8 +88,7 @@ static DKStyle* sCreatedObjectsStyle = nil;
  @param aPrototype an object that will be used as the tool's prototype - each new object created will
  @return the tool object
  */
-- (id)initWithPrototypeObject:(id<NSObject>)aPrototype
-{
+- (id)initWithPrototypeObject:(id<NSObject>)aPrototype {
 	self = [super init];
 	if (self != nil) {
 		[self setPrototype:aPrototype];
@@ -253,6 +253,10 @@ static DKStyle* sCreatedObjectsStyle = nil;
 			m_protoObject = nil;
 
 			result = YES;
+            
+            if ([m_prototypeObject isKindOfClass:[DKTextShape class]]) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"DKDrawKitObjectCreated" object:nil];
+            }
 		}
 	}
 
@@ -364,9 +368,16 @@ static DKStyle* sCreatedObjectsStyle = nil;
 /** @brief Return the tool's cursor
  @return the cross-hair cursor
  */
-- (NSCursor*)cursor
-{
-	return [NSCursor crosshairCursor];
+- (NSCursor*)cursor {
+    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"brush" ofType:@"tiff"];
+    if ([m_prototypeObject isKindOfClass:[DKTextShape class]]) {
+        resourcePath = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"tiff"];
+    }
+    
+    NSImage *brushImage = [[NSImage alloc] initWithContentsOfFile:resourcePath];
+    NSSize brushImageSize = [brushImage size];
+    NSCursor *brushCursor = [[NSCursor alloc] initWithImage:brushImage hotSpot:NSMakePoint(0.0f, brushImageSize.height - 2.0)];
+    return brushCursor;
 }
 
 /** @brief Handle the initial mouse down

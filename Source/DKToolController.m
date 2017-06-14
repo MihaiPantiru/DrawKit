@@ -176,8 +176,7 @@ static DKDrawingTool* sGlobalTool = nil;
  The tool is set locally, for the drawing or globally according to the current scope.
  @param aTool the tool to set
  */
-- (void)setDrawingTool:(DKDrawingTool*)aTool
-{
+- (void)setDrawingTool:(DKDrawingTool*)aTool {
 	NSAssert(aTool != nil, @"attempt to set a nil tool");
 
 	if (aTool != [self drawingTool]) {
@@ -210,7 +209,6 @@ static DKDrawingTool* sGlobalTool = nil;
 		[aTool toolControllerDidSetTool:self];
 		[[NSNotificationCenter defaultCenter] postNotificationName:kDKDidChangeToolNotification
 															object:self];
-
 		[oldTool release];
 
 		// check if the current layer is usable with the tool and the class enables auto-activation. If it does,
@@ -540,7 +538,7 @@ static DKDrawingTool* sGlobalTool = nil;
 
 		// start the tool:
         
-        NSLog(@"DrawKit - target here %@", target);
+//        NSLog(@"DrawKit - target here %@", target);
 
 		@try
 		{
@@ -554,13 +552,11 @@ static DKDrawingTool* sGlobalTool = nil;
 									   event:event
 									delegate:self];
             
-            NSLog(@"DraKit - mpartcode %d", mPartcode);
-            
             if (mPartcode == 0) {
-                NSLog(@"DraKit - mpartcode return true");
+//                NSLog(@"DraKit - mpartcode return true");
                  return true;
             } else {
-                NSLog(@"DraKit - mpartcode return false");
+//                NSLog(@"DraKit - mpartcode return false");
                 return false;
             }
 		}
@@ -577,7 +573,7 @@ static DKDrawingTool* sGlobalTool = nil;
 			mAbortiveMouseDown = YES;
 		}
         
-         NSLog(@"DraKit - mpartcode  2 return false");
+//         NSLog(@"DraKit - mpartcode  2 return false");
         
         return false;
 	} else {
@@ -586,7 +582,7 @@ static DKDrawingTool* sGlobalTool = nil;
 
 		[super mouseDown:event];
         
-        NSLog(@"DraKit - mpartcode  2 return true");
+//        NSLog(@"DraKit - mpartcode  2 return true");
         return true;
 	}
 }
