@@ -1130,8 +1130,7 @@ static Class s_textEditorClass = Nil;
 /** @brief Can the view be 1st R?
  @return always YES
  */
-- (BOOL)acceptsFirstResponder
-{
+- (BOOL)acceptsFirstResponder {
 	return YES;
 }
 

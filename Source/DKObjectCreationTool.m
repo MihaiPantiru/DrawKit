@@ -265,9 +265,6 @@ static DKStyle* sCreatedObjectsStyle = nil;
 
 			result = YES;
             
-//            if ([m_prototypeObject isKindOfClass:[DKTextShape class]]) {
-//                [[NSNotificationCenter defaultCenter] postNotificationName:@"DKDrawKitObjectCreated" object:nil];
-//            }
 		}
 	}
 
@@ -437,24 +434,6 @@ static DKStyle* sCreatedObjectsStyle = nil;
         
         // mihai.pantiru: If object selected prevent draw something else
         if (obj && ![obj isKindOfClass:[DKDrawablePath class]]) {
-            
-//            if ([obj locked] || [obj locationLocked]) {
-//                [self setOperationMode:kDKEditToolSelectionMode];
-//                mAnchorPoint = mLastPoint = p;
-////                mMarqueeRect = NSRectFromTwoPoints(p, p);
-//                
-//                NSDictionary* userInfoDict = [NSDictionary dictionaryWithObjectsAndKeys:layer, kDKSelectionToolTargetLayer, obj, kDKSelectionToolTargetObject, nil];
-//
-//                [[NSNotificationCenter defaultCenter] postNotificationName:kDKSelectionToolWillStartSelectionDrag
-//                                                                    object:self
-//                                                                  userInfo:userInfoDict];
-//                [self changeSelectionWithTarget:obj
-//                                        inLayer:odl
-//                                          event:event];
-////                mWasInLockedObject = YES;
-//                return kDKDrawingEntireObjectPart;
-//            }
-            
             mPartcode = [obj hitPart:p];
             
             // detect a double-click and call the target object's method for fielding it
@@ -474,33 +453,39 @@ static DKStyle* sCreatedObjectsStyle = nil;
             [self setOperationMode:kDKEditToolEditObjectMode];
             [odl replaceSelectionWithObject:obj];
             
-            
             // notify we are about to start:
-            
             NSDictionary* userInfoDict = [NSDictionary dictionaryWithObjectsAndKeys:layer, kDKSelectionToolTargetLayer, obj, kDKSelectionToolTargetObject, nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:kDKSelectionToolWillStartEditingObject
                                                                 object:self
                                                               userInfo:userInfoDict];
             
             // setting nil here will cause the action name to be supplied by the object itself
-            
             [self setUndoAction:nil];
             [obj mouseDownAtPoint:p
                            inPart:mPartcode
                             event:event];
-            
-             //NSLog(@"drawkit -  mpartcode %ld creationTool mouse down here obj:%@", (long)mPartcode, obj);
-            
             return mPartcode;
         }
-
-        [odl deselectAll];
-
-         [self setOperationMode:kDKEditToolInvalidMode];
         
-		// because this tool creates new objects, ignore the <obj> parameter and just make a new one
-		if (m_protoObject == nil)
-			m_protoObject = [[self objectFromPrototype] retain];
+        // because this tool creates new objects, ignore the <obj> parameter and just make a new one
+        if (m_protoObject == nil)
+            m_protoObject = [[self objectFromPrototype] retain];
+        if ([m_prototypeObject isKindOfClass:[DKTextShape class]]) {
+            if ([odl selection].count > 0) {
+                m_protoObject = nil;
+                
+//                for (DKObjectCreationTool *tool in [odl selection]) {
+//                    if ([[tool prototype] isKindOfClass:[DKTextShape class]]) {
+                        [odl deselectAll];
+                        [self setOperationMode:kDKEditToolInvalidMode];
+                        return mPartcode;
+//                    }
+//                }
+            }
+        }
+        
+        [odl deselectAll];
+        [self setOperationMode:kDKEditToolInvalidMode];
 
 		NSAssert(m_protoObject != nil, @"creation tool couldn't create object from prototype");
 
