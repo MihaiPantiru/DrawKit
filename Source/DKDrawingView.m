@@ -1168,17 +1168,17 @@ static Class s_textEditorClass = Nil;
 	[self postMouseLocationInfo:kDKDrawingMouseDownLocation
 						  event:event];
 	[self set];
-    BOOL notSelectedObject = [[self controller] mouseDown:event];
+    [[self controller] mouseDown:event];
 //    NSLog(@"DrawKit - selected object %d", notSelectedObject);
-    if (notSelectedObject) {
+//    if (notSelectedObject) {
 //        [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldPerformMoving object:self];
         
 //        NSLog(@"Allow moving - mouse down");
-    } else {
+//    } else {
         
 //        NSLog(@"Deny moving - mouse down");
 //        [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
-    }
+//    }
 }
 
 /** @brief Handle the mouse dragged event

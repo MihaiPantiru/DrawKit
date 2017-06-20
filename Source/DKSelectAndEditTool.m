@@ -935,7 +935,6 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 		// if the layer kind is not an object layer, the tool cannot be applied so set its mode to invalid
 
 		[self setOperationMode:kDKEditToolInvalidMode];
-        mShouldPassDrag = YES;
 	} else {
 		// layer type is OK. Whether we will move, select or edit depends on what was initially hit and the current selection state.
 
@@ -943,26 +942,9 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 
 		if (obj == nil) {
 			// no initial target object, so the tool simply implements a drag selection
-
-            
-            NSLog(@"dkselect -  odl layer %@", odl);
-
-            
-            NSLog(@"wtf dkselect - object nil");
-            
-            mShouldPassDrag = YES;
 			[self setOperationMode:kDKEditToolSelectionMode];
-			mAnchorPoint = mLastPoint = p;
-			//mMarqueeRect = NSRectFromTwoPoints(p, p);
-
-			//[[NSNotificationCenter defaultCenter] postNotificationName:kDKSelectionToolWillStartSelectionDrag
-			//													object:self
-			//												  userInfo:userInfoDict];
+            mAnchorPoint = mLastPoint = p;
 		} else {
-             mShouldPassDrag = NO;
-            
-              NSLog(@"dkselect - object selected");
-            
 			// a target object was supplied. The tool will either move it (and optionally other selected ones), or edit it by dragging its
 			// knobs. If the object is locked it can still be selected but not moved or resized, so it makes more sense to switch to a marquee drag in this case.
 
@@ -984,7 +966,6 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 			mPartcode = [obj hitPart:p];
 
 			// detect a double-click and call the target object's method for fielding it
-
 			if ([event clickCount] > 1) {
 				[obj mouseDoubleClickedAtPoint:p
 										inPart:mPartcode
@@ -1063,10 +1044,6 @@ static void dragFunction_mouseUp(const void* obj, void* context)
 	}
 
 	return mPartcode;
-}
-
-- (BOOL)shouldPassDrag {
-    return mShouldPassDrag;
 }
 
 /** @brief Handle the mouse dragged event

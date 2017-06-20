@@ -5,6 +5,7 @@
 */
 
 #import "DKDrawingTool.h"
+#import "DKSelectAndEditTool.h"
 
 @class DKStyle;
 
@@ -25,6 +26,15 @@ You can also set up a style to be applied to all new objects initially as an ind
 	BOOL mDidPickup;
 	NSPoint mLastPoint;
 	NSInteger mPartcode;
+    DKEditToolOperation mOperationMode; // what the tool is doing (selecting, editing or moving)
+    BOOL mPerformedUndoableTask; // YES if the tool did anything undoable
+    BOOL mMouseMoved; // YES if mouse was actually dragged, not just clickeds
+    NSArray* mDraggedObjects; // cache of objects being dragged
+    NSImage* mProxyDragImage; // the proxy image being dragged
+    NSRect mProxyDragDestRect; // where it is drawn
+    BOOL mInProxyDrag; // YES during a proxy drag
+    NSUInteger mProxyDragThreshold; // number of objects in the selection where a proxy drag is used; 0 = never do a proxy drag
+    NSPoint mAnchorPoint; // the point of the initial mouse down
 
 @protected
 	id m_protoObject;

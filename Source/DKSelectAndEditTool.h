@@ -62,7 +62,6 @@ has a very low opacity should be used - the default style takes the system's hig
 	NSRect mProxyDragDestRect; // where it is drawn
 	NSArray* mDraggedObjects; // cache of objects being dragged
 	BOOL mWasInLockedObject; // YES if initial mouse down was in a locked object
-    BOOL mShouldPassDrag;
 }
 
 /** @brief Returns the default style to use for drawing the selection marquee
@@ -211,8 +210,6 @@ has a very low opacity should be used - the default style takes the system's hig
 // setting the undo action name
 
 - (void)setUndoAction:(NSString*)action;
-
-- (BOOL)shouldPassDrag;
 
 @end
 

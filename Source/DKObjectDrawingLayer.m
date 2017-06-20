@@ -2644,7 +2644,7 @@ enum {
 		m_selection = [[NSMutableSet alloc] init];
 		m_selectionIsUndoable = [[self class] defaultSelectionChangesAreUndoable];
 		m_drawSelectionOnTop = YES;
-		m_selectionVisible = NO;
+		m_selectionVisible = YES;
 		m_allowDragTargeting = NO;
 
 		if (m_selection == nil) {

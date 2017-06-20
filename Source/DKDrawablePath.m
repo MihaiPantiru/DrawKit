@@ -218,7 +218,7 @@ static NSColor* sInfoWindowColour = nil;
 - (void)drawControlPointsOfPath:(NSBezierPath*)path usingKnobs:(DKKnob*)knobs
 {
 	// draws the control points of the entire path using the knobs supplied.
-/*
+
 	NSBezierPathElement et;
 	NSPoint ap[3];
 	NSPoint lp;
@@ -349,7 +349,6 @@ static NSColor* sInfoWindowColour = nil;
 #endif
 		}
 	}
- */
 }
 
 /** @brief Given a set of rects as NSValue objects, this invalidates them
@@ -1686,6 +1685,10 @@ finish:
 - (CGFloat)freehandSmoothing
 {
 	return m_freehandEpsilon;
+}
+
+- (BOOL)objectMayBecomeSelected {
+    return NO;
 }
 
 #pragma mark -
