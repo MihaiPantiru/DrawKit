@@ -1144,7 +1144,7 @@ static Class s_textEditorClass = Nil;
  @param event the event
  */
 - (void)keyDown:(NSEvent*)event {
-    NSLog(@"Key downs %@", event.description);
+    NSLog(@"Key downs on drawView %@", event.description);
     
 	if ([[self controller] respondsToSelector:@selector(keyDown:)])
 		[(NSResponder*)[self controller] keyDown:event];

@@ -1018,8 +1018,9 @@ static id sDearchivingHelper = nil;
  document's undoManager should be used. Otherwise, the view's or window's undoManager can be used.
  @param um the undo manager to use
  */
-- (void)setUndoManager:(id)um
-{
+- (void)setUndoManager:(id)um {
+//    NSLog(@"set undomanager %@", um);
+    
 	if (um != m_undoManager) {
 		[m_undoManager removeAllActions];
 
@@ -1037,8 +1038,7 @@ static id sDearchivingHelper = nil;
 /** @brief Returns the undo manager for the drawing
  @return the currently used undo manager
  */
-- (id)undoManager
-{
+- (id)undoManager {
 	return m_undoManager;
 }
 

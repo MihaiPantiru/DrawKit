@@ -347,12 +347,15 @@ static NSSize sTempSavedOffset;
 
 - (id)initWithRect:(NSRect)aRect style:(DKStyle*)aStyle
 {
+    
+    NSLog(@"init with rect %@", NSStringFromRect(aRect));
+    
 	self = [self initWithStyle:aStyle];
 	if (self != nil) {
 		NSPoint cp;
 		cp.x = NSMidX(aRect);
 		cp.y = NSMidY(aRect);
-
+        
 		[self setSize:aRect.size];
 		[self setLocation:cp];
 	}
@@ -372,6 +375,7 @@ static NSSize sTempSavedOffset;
 
 		[self setSize:aRect.size];
 		[self setLocation:cp];
+        NSLog(@"%s", __FILE__);
 	}
 	return self;
 }
@@ -496,6 +500,7 @@ static NSSize sTempSavedOffset;
  */
 - (void)reshapePath
 {
+     NSLog(@"here 2 %s %d %@", __FILE__, __LINE__, self);
 }
 
 /** @brief Sets the shape's path given any path
@@ -538,7 +543,7 @@ static NSSize sTempSavedOffset;
 	[self setSize:br.size];
 	[self setOffset:NSZeroSize];
 	[self setLocation:loc];
-
+    
 	// get the shape's transform and invert it
 
 	NSAffineTransform* xfm = [self inverseTransform];
@@ -551,6 +556,7 @@ static NSSize sTempSavedOffset;
 
 	[self setPath:transformedPath];
 	[self setAngle:angl];
+     NSLog(@"%s %d", __FILE__, __LINE__);
 	[self notifyVisualChange];
 }
 
@@ -2100,13 +2106,22 @@ static NSSize sTempSavedOffset;
  */
 - (void)setLocation:(NSPoint)location
 {
+    NSLog(@"drawable - setLocation %@", NSStringFromPoint(location));
+    
+    
 	if (!NSEqualPoints(location, [self location]) && ![self locationLocked]) {
 		NSRect oldBounds = [self bounds];
+        
+        
+        NSLog(@"drawable - oldBounds %@", NSStringFromRect(oldBounds));
+        
 		[[[self undoManager] prepareWithInvocationTarget:self] setLocation:[self location]];
 
+         NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 		m_location = location;
 		mBoundsCache = NSZeroRect;
+         NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 		[self notifyGeometryChange:oldBounds];
 	}
@@ -2190,6 +2205,8 @@ static NSSize sTempSavedOffset;
 			mp = [self snappedMousePoint:mp
 				forSnappingPointsWithControlFlag:controlKey];
 
+            NSLog(@"set location from drag");
+                NSLog(@"%s", __FILE__);
 			[self setLocation:mp];
 			[self updateInfoForOperation:kDKShapeOperationMove
 								 atPoint:omp];
@@ -2251,6 +2268,7 @@ static NSSize sTempSavedOffset;
 	m_hideOriginTarget = NO;
 
 	if (m_inRotateOp) {
+         NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 		sTempRotationPt = [self knobPoint:kDKDrawableShapeRotationHandle];
 		m_inRotateOp = NO;
@@ -2352,7 +2370,7 @@ static NSSize sTempSavedOffset;
 		NSRect oldBounds = [self bounds];
 
 		[[[self undoManager] prepareWithInvocationTarget:self] setAngle:m_rotationAngle];
-
+ NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 		m_rotationAngle = angle;
 		mBoundsCache = NSZeroRect;
@@ -2371,7 +2389,7 @@ static NSSize sTempSavedOffset;
 		NSRect oldBounds = [self bounds];
 
 		[[[self undoManager] prepareWithInvocationTarget:self] setSize:m_scale];
-
+ NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 		m_scale = newSize;
 		mBoundsCache = NSZeroRect;
@@ -2381,7 +2399,11 @@ static NSSize sTempSavedOffset;
 
 		if ([self size].width != 0.0 && [self size].height != 0.0)
 			[self reshapePath];
-
+        
+        
+        
+        
+ NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 		[self notifyGeometryChange:oldBounds];
 	}
@@ -2457,6 +2479,9 @@ static NSSize sTempSavedOffset;
 	NSRect pathBounds = [path bounds];
 
 	if (pathBounds.size.height > 0 && pathBounds.size.width > 0) {
+         NSLog(@"set location from willUngroupObjectWithTransform");
+        
+            NSLog(@"%s", __FILE__);
 		[self setLocation:loc];
 		[self rotateByAngle:[aGroup angle]]; // preserves rotated bounds
 		[self adoptPath:path];
@@ -2500,6 +2525,7 @@ static NSSize sTempSavedOffset;
 - (void)setOffset:(NSSize)offs
 {
 	if (!NSEqualSizes(offs, [self offset])) {
+         NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 		[[[self undoManager] prepareWithInvocationTarget:self] setOffset:m_offset];
 
@@ -2515,6 +2541,8 @@ static NSSize sTempSavedOffset;
 		m_location = p;
 		m_offset = offs;
 		mBoundsCache = NSZeroRect;
+        
+         NSLog(@"%s %d", __FILE__, __LINE__);
 		[self notifyVisualChange];
 
 		LogEvent_(kReactiveEvent, @"set offset = %@; location = %@", NSStringFromSize(m_offset), NSStringFromPoint(p));

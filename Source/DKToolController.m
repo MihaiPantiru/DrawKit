@@ -764,8 +764,7 @@ static DKDrawingTool* sGlobalTool = nil;
  to the layer.
  @param event the key down event
  */
-- (void)keyDown:(NSEvent*)event
-{
+- (void)keyDown:(NSEvent*)event {    
 	DKDrawingTool* tool = [DKDrawingTool drawingToolWithKeyboardEquivalent:event];
 
 	if (tool) {
@@ -774,9 +773,27 @@ static DKDrawingTool* sGlobalTool = nil;
 	} else {
 		@try
 		{
-            NSLog(@"key downs sent to view event = %@", event);
+            BOOL shift = ([event modifierFlags] & NSShiftKeyMask) != 0;
+            BOOL cmd = ([event modifierFlags] & NSCommandKeyMask) != 0;
             
-			[[self view] interpretKeyEvents:[NSArray arrayWithObject:event]];
+            if (shift && cmd) {
+                if (event.keyCode == 6) {
+                    [[self undoManager] redo];
+                    return;
+                }
+            } else {
+                if (cmd) {
+                    if (event.keyCode == 6) {
+                        [[self undoManager] undo];
+                        return;
+                    }
+                }
+            }
+            
+//			[[self view] interpretKeyEvents:[NSArray arrayWithObject:event]];
+            
+//            [[self view] keyDown:event];
+            
 		}
 		@catch (NSException* excp)
 		{

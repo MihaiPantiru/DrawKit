@@ -565,9 +565,9 @@ static CGFloat sAngleConstraint = 0.261799387799; // 15°
 	NSPoint smp = [self snappedMousePoint:mp
 						  withControlFlag:ctrl];
 
-	if (partcode == kDKArcPathCentrePointPart)
+    if (partcode == kDKArcPathCentrePointPart) {
 		[self setLocation:smp];
-	else if (partcode == kDKDrawingEntireObjectPart)
+    } else if (partcode == kDKDrawingEntireObjectPart)
 		[super mouseDraggedAtPoint:mp
 							inPart:kDKDrawingEntireObjectPart
 							 event:evt];
@@ -736,7 +736,6 @@ static CGFloat sAngleConstraint = 0.261799387799; // 15°
 
 	NSSize radSize = NSMakeSize([self radius], [self radius]);
 	radSize = [aTransform transformSize:radSize];
-
 	[self setLocation:loc];
 	[self setRadius:hypotf(radSize.width, radSize.height) / _CGFloatSqrt(2.0f)];
 	[self setAngle:[self angle] + [aGroup angle]];
