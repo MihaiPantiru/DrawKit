@@ -790,10 +790,10 @@ static DKDrawingTool* sGlobalTool = nil;
                 }
             }
             
-//			[[self view] interpretKeyEvents:[NSArray arrayWithObject:event]];
-            
-//            [[self view] keyDown:event];
-            
+            if (!shift && !cmd && event.keyCode == 51) {
+                DKObjectDrawingLayer* cLayer = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
+                [cLayer removeSelectedObjects];
+            }
 		}
 		@catch (NSException* excp)
 		{

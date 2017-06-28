@@ -849,6 +849,12 @@ enum {
 	return [m_selection containsObject:obj];
 }
 
+- (void)removeSelectedObjects {
+    for (DKDrawableObject *obj in m_selection) {
+        [self removeObject:obj];
+    }
+}
+
 /** @brief Query whether any objects are selected
  @return YES if there is at least one object selected, NO if none are
  */

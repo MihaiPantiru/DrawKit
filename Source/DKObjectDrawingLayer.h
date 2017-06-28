@@ -277,6 +277,8 @@ selected state.
  */
 - (BOOL)isSelectedObject:(DKDrawableObject*)obj;
 
+- (void)removeSelectedObjects;
+
 /** @brief Query whether any objects are selected
  @return YES if there is at least one object selected, NO if none are
  */
