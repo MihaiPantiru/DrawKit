@@ -420,20 +420,10 @@ static DKStyle* sCreatedObjectsStyle = nil;
 	// sanity check the layer type - in practice it shouldn't ever be anything else as this is also checked by the tool controller.
 
 	if ([layer isKindOfClass:[DKObjectOwnerLayer class]]) {
-		// this tool may do a style pickup if enabled. This allows a command-click to choose the style of the clicked object
-//		BOOL pickUpStyle = (obj != nil) && [self stylePickupEnabled] && (([event modifierFlags] & NSCommandKeyMask) != 0);
-//
-//		if (pickUpStyle) {
-//			DKStyle* style = [obj style];
-//			[self setStyle:style];
-//			mDidPickup = YES;
-//			return mPartcode;
-//		}
-
-        
-        
         // mihai.pantiru: If object selected prevent draw something else
-        if (obj && ![obj isKindOfClass:[DKDrawablePath class]]) {
+        BOOL isArrow = [obj isKindOfClass:[DKDrawablePath class]] && [obj objectMayBecomeSelected];
+        if (obj && (![obj isKindOfClass:[DKDrawablePath class]] || isArrow)) {
+            
             mPartcode = [obj hitPart:p];
             
             // detect a double-click and call the target object's method for fielding it
@@ -466,7 +456,7 @@ static DKStyle* sCreatedObjectsStyle = nil;
                             event:event];
             return mPartcode;
         }
-        
+
         // because this tool creates new objects, ignore the <obj> parameter and just make a new one
         if (m_protoObject == nil)
             m_protoObject = [[self objectFromPrototype] retain];

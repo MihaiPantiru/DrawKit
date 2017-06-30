@@ -298,39 +298,21 @@ NSString* kDKDrawingScrollwheelSensePrefsKey = @"kDKDrawingcrollwheelSense"; // 
  All zooms bottleneck through here. Scale passed is pinned within the min and max limits.
  @param sc - the desired scale
  */
-- (void)setScale:(CGFloat)sc
-{
-	if (sc < [self minimumScale])
-		sc = [self minimumScale];
-
-	if (sc > [self maximumScale])
-		sc = [self maximumScale];
-
+- (void)setScale:(CGFloat)sc {
 	if (sc != [self scale]) {
-		[self startScaleChange]; // stop is called by retriggerable timer
-
 		NSSize newSize;
 		NSRect fr;
 		CGFloat factor = sc / [self scale];
 
-		[[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewWillChangeScale
-															object:self];
 		m_scale = sc;
 		fr = [self frame];
 
 		newSize.width = newSize.height = factor;
-
 		[self scaleUnitSquareToSize:newSize];
 
 		fr.size.width *= factor;
 		fr.size.height *= factor;
 		[self setFrameSize:fr.size];
-		[self setNeedsDisplay:YES];
-
-		LogEvent_(kReactiveEvent, @"new view scale = %f", m_scale);
-
-		[[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewDidChangeScale
-															object:self];
 	}
 }
 
@@ -393,7 +375,7 @@ NSString* kDKDrawingScrollwheelSensePrefsKey = @"kDKDrawingcrollwheelSense"; // 
 - (void)stopScaleChange
 {
 	mIsChangingScale = NO;
-	[self setNeedsDisplay:YES]; // redraw in high quality?
+	//[self setNeedsDisplay:YES]; // redraw in high quality?
 
 	LogEvent_(kReactiveEvent, @"view stopped changing scale (%f): %@", [self scale], self);
 }

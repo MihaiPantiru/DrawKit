@@ -17,6 +17,7 @@
 #import "CurveFit.h"
 #import "LogEvent.h"
 #include <tgmath.h>
+#import "DKArrowStroke.h"
 
 #pragma mark Global Vars
 NSPoint gMouseForPathSnap = { 0, 0 };
@@ -1688,6 +1689,11 @@ finish:
 }
 
 - (BOOL)objectMayBecomeSelected {
+    for (id renderer in self.style.renderList) {
+        if ([renderer isKindOfClass:[DKArrowStroke class]]) {
+            return YES;
+        }
+    }
     return NO;
 }
 
@@ -2376,24 +2382,24 @@ finish:
 							 event:evt];
 	} else {
         
-        /*
-		BOOL ctrl = (([evt modifierFlags] & NSControlKeyMask) != 0);
-		mp = [self snappedMousePoint:mp
-					 withControlFlag:ctrl];
-		[self movePathPartcode:partcode
-					   toPoint:mp
-						 event:evt];
-
-		// if the class is set to show size info when resizing, set up an info window now to do that.
-
-		if ([[self class] displaysSizeInfoWhenDragging]) {
-			NSPoint gridPt = [self convertPointToDrawing:mp];
-			NSString* abbrUnits = [[self drawing] abbreviatedDrawingUnits];
-
-			[[self layer] showInfoWindowWithString:[NSString stringWithFormat:@"x: %.2f%@\ny: %.2f%@", gridPt.x, abbrUnits, gridPt.y, abbrUnits]
-										   atPoint:mp];
-         
-		}*/
+        if ([self objectMayBecomeSelected]) {
+          		BOOL ctrl = (([evt modifierFlags] & NSControlKeyMask) != 0);
+            mp = [self snappedMousePoint:mp
+                         withControlFlag:ctrl];
+            [self movePathPartcode:partcode
+                           toPoint:mp
+                             event:evt];
+            
+            // if the class is set to show size info when resizing, set up an info window now to do that.
+            
+            if ([[self class] displaysSizeInfoWhenDragging]) {
+                NSPoint gridPt = [self convertPointToDrawing:mp];
+                NSString* abbrUnits = [[self drawing] abbreviatedDrawingUnits];
+                
+                [[self layer] showInfoWindowWithString:[NSString stringWithFormat:@"x: %.2f%@\ny: %.2f%@", gridPt.x, abbrUnits, gridPt.y, abbrUnits]
+                                               atPoint:mp];
+            }
+        }
 
 		[self setMouseHasMovedSinceStartOfTracking:YES];
 	}

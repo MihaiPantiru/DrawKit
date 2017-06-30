@@ -728,6 +728,10 @@ static NSString* sDefault_string = @"Double-click to edit";
 		[[m_editorRef textContainer] setHeightTracksTextView:NO];
 		[m_editorRef setVerticallyResizable:YES];
 		[m_editorRef setTypingAttributes:[self textAttributes]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kDKSelectionToolWillStartEditingText2"
+                                                            object:self
+                                                          userInfo:nil];
 	}
 }
 
@@ -742,6 +746,12 @@ static NSString* sDefault_string = @"Double-click to edit";
 		[parent endTextEditing];
 		[self notifyVisualChange];
 		m_editorRef = nil;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kDKSelectionToolDidEndEditingText2"
+                                                            object:self
+                                                          userInfo:nil];
+        
+        
 	}
 }
 
@@ -1656,6 +1666,10 @@ static NSString* sDefault_string = @"Double-click to edit";
 {
 #pragma unused(aNotification)
 	[self endEditing];
+    
+    NSLog(@"textView did end editing");
+    
+    
 }
 
 - (void)textWillChange:(NSNotification*)note
@@ -1668,6 +1682,9 @@ static NSString* sDefault_string = @"Double-click to edit";
 	// this allows the texview to act as a special field editor. Return + Enter complete text editing, but Tab does not. Also, for convenience to
 	// Windows switchers, Shift+Return/Shift+Enter insert new lines.
 
+    
+     NSLog(@"textView Selector method is (%@)", NSStringFromSelector( selector ) );
+    
 	if (tv == m_editorRef) {
 		NSEvent* evt = [NSApp currentEvent];
 
@@ -1686,6 +1703,10 @@ static NSString* sDefault_string = @"Double-click to edit";
 		}
 	}
 	return NO;
+}
+
+- (void)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector {
+    NSLog(@" control Selector method is (%@)", NSStringFromSelector( commandSelector ) );
 }
 
 #pragma mark -
