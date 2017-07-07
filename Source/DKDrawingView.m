@@ -1124,7 +1124,8 @@ static Class s_textEditorClass = Nil;
 /** @brief Can the view be 1st R?
  @return always YES
  */
-- (BOOL)acceptsFirstResponder {
+- (BOOL)acceptsFirstResponder
+{
 	return YES;
 }
 
@@ -1137,9 +1138,8 @@ static Class s_textEditorClass = Nil;
  for selecting a tool using a keyboard shortcut).
  @param event the event
  */
-- (void)keyDown:(NSEvent*)event {
-    NSLog(@"Key downs on drawView %@", event.description);
-    
+- (void)keyDown:(NSEvent*)event
+{
 	if ([[self controller] respondsToSelector:@selector(keyDown:)])
 		[(NSResponder*)[self controller] keyDown:event];
 	else
@@ -1155,23 +1155,12 @@ static Class s_textEditorClass = Nil;
  The view defers to its controller after broadcasting the mouse position info
  @param event the event
  */
-- (void)mouseDown:(NSEvent*)event {
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
-    
+- (void)mouseDown:(NSEvent*)event
+{
 	[self postMouseLocationInfo:kDKDrawingMouseDownLocation
 						  event:event];
 	[self set];
-    [[self controller] mouseDown:event];
-//    NSLog(@"DrawKit - selected object %d", notSelectedObject);
-//    if (notSelectedObject) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldPerformMoving object:self];
-        
-//        NSLog(@"Allow moving - mouse down");
-//    } else {
-        
-//        NSLog(@"Deny moving - mouse down");
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
-//    }
+	[[self controller] mouseDown:event];
 }
 
 /** @brief Handle the mouse dragged event
@@ -1189,17 +1178,7 @@ static Class s_textEditorClass = Nil;
 		mLastMouseDragTime = t;
 		[self postMouseLocationInfo:kDKDrawingMouseDraggedLocation
 							  event:event];
-        
-		BOOL dragUsed = [[self controller] mouseDragged:event];
-        if (dragUsed == NO) {
-//            [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldPerformMoving object:self];
-//            NSLog(@"Allow moving - drag not used");
-            
-//            [super mouseDragged:event];
-        } else {
-//            NSLog(@"Deny moving - drag not used");
-//            [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldAvoidMoving object:self];
-        }
+		[[self controller] mouseDragged:event];
 	}
 }
 
@@ -1223,11 +1202,8 @@ static Class s_textEditorClass = Nil;
  The view defers to its controller after broadcasting the mouse position info
  @param event the event
  */
-- (void)mouseUp:(NSEvent*)event {
-//    NSLog(@"Allow moving - mouse up");
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDKDrawingViewShouldPerformMoving object:self];
-    
+- (void)mouseUp:(NSEvent*)event
+{
 	[self postMouseLocationInfo:kDKDrawingMouseUpLocation
 						  event:event];
 	[[self controller] mouseUp:event];

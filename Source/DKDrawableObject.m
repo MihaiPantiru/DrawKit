@@ -902,7 +902,7 @@ static NSDictionary* s_interconversionTable = nil;
 		[self invalidateRenderingCache];
 		[[self storage] object:self
 			didChangeBoundsFrom:oldBounds];
-		[self updateRulerMarkers];
+//		[self updateRulerMarkers];
 	}
 }
 
