@@ -1226,7 +1226,7 @@ finish:
 		p = [view convertPoint:[theEvent locationInWindow]
 					  fromView:nil];
 
-		BOOL shiftKey = ([theEvent modifierFlags] & NSShiftKeyMask) != 0;
+        BOOL shiftKey = YES; // ([theEvent modifierFlags] & NSShiftKeyMask) != 0;
 
 		p = [self snappedMousePoint:p
 					withControlFlag:shiftKey];
@@ -2383,22 +2383,9 @@ finish:
 	} else {
         
         if ([self objectMayBecomeSelected]) {
-//          		BOOL ctrl = (([evt modifierFlags] & NSControlKeyMask) != 0);
-//            mp = [self snappedMousePoint:mp
-//                         withControlFlag:ctrl];
             [self movePathPartcode:partcode
                            toPoint:mp
                              event:evt];
-            
-            // if the class is set to show size info when resizing, set up an info window now to do that.
-            
-//            if ([[self class] displaysSizeInfoWhenDragging]) {
-//                NSPoint gridPt = [self convertPointToDrawing:mp];
-//                NSString* abbrUnits = [[self drawing] abbreviatedDrawingUnits];
-//                
-//                [[self layer] showInfoWindowWithString:[NSString stringWithFormat:@"x: %.2f%@\ny: %.2f%@", gridPt.x, abbrUnits, gridPt.y, abbrUnits]
-//                                               atPoint:mp];
-//            }
         }
 
 		[self setMouseHasMovedSinceStartOfTracking:YES];
