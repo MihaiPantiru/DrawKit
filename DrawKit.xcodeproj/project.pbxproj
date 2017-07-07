@@ -108,6 +108,12 @@
 		AE049F461EF015D6003F6BF4 /* text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE049F401EF015D6003F6BF4 /* text@2x.png */; };
 		AE049F601EF11F6C003F6BF4 /* DKNoneTool.h in Headers */ = {isa = PBXBuildFile; fileRef = AE049F5E1EF11F6C003F6BF4 /* DKNoneTool.h */; };
 		AE049F611EF11F6C003F6BF4 /* DKNoneTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE049F5F1EF11F6C003F6BF4 /* DKNoneTool.m */; };
+		AE3C700D1F0A7430001F37BD /* cursor-arrow.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AE3C70071F0A7430001F37BD /* cursor-arrow.pdf */; };
+		AE3C700E1F0A7430001F37BD /* cursor-circle.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AE3C70081F0A7430001F37BD /* cursor-circle.pdf */; };
+		AE3C700F1F0A7430001F37BD /* cursor-default.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AE3C70091F0A7430001F37BD /* cursor-default.pdf */; };
+		AE3C70101F0A7430001F37BD /* cursor-pen.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AE3C700A1F0A7430001F37BD /* cursor-pen.pdf */; };
+		AE3C70111F0A7430001F37BD /* cursor-round-rect.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AE3C700B1F0A7430001F37BD /* cursor-round-rect.pdf */; };
+		AE3C70121F0A7430001F37BD /* cursor-text.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AE3C700C1F0A7430001F37BD /* cursor-text.pdf */; };
 		BF0350330F3A93A20042C98B /* NSBezierPath+Text.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0350310F3A93A20042C98B /* NSBezierPath+Text.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF0350340F3A93A20042C98B /* NSBezierPath+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0350320F3A93A20042C98B /* NSBezierPath+Text.m */; };
 		BF0826810E11203500971D3D /* DKCropTool.h in Headers */ = {isa = PBXBuildFile; fileRef = BF08267F0E11203500971D3D /* DKCropTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -406,6 +412,12 @@
 		AE049F401EF015D6003F6BF4 /* text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text@2x.png"; sourceTree = "<group>"; };
 		AE049F5E1EF11F6C003F6BF4 /* DKNoneTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKNoneTool.h; sourceTree = "<group>"; };
 		AE049F5F1EF11F6C003F6BF4 /* DKNoneTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKNoneTool.m; sourceTree = "<group>"; };
+		AE3C70071F0A7430001F37BD /* cursor-arrow.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "cursor-arrow.pdf"; sourceTree = "<group>"; };
+		AE3C70081F0A7430001F37BD /* cursor-circle.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "cursor-circle.pdf"; sourceTree = "<group>"; };
+		AE3C70091F0A7430001F37BD /* cursor-default.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "cursor-default.pdf"; sourceTree = "<group>"; };
+		AE3C700A1F0A7430001F37BD /* cursor-pen.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "cursor-pen.pdf"; sourceTree = "<group>"; };
+		AE3C700B1F0A7430001F37BD /* cursor-round-rect.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "cursor-round-rect.pdf"; sourceTree = "<group>"; };
+		AE3C700C1F0A7430001F37BD /* cursor-text.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "cursor-text.pdf"; sourceTree = "<group>"; };
 		BF0350310F3A93A20042C98B /* NSBezierPath+Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+Text.h"; path = "Source/NSBezierPath+Text.h"; sourceTree = "<group>"; };
 		BF0350320F3A93A20042C98B /* NSBezierPath+Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+Text.m"; path = "Source/NSBezierPath+Text.m"; sourceTree = "<group>"; };
 		BF08267F0E11203500971D3D /* DKCropTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKCropTool.h; path = Source/DKCropTool.h; sourceTree = "<group>"; };
@@ -976,6 +988,12 @@
 		96F516CD0B89DC050047BA96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE3C70071F0A7430001F37BD /* cursor-arrow.pdf */,
+				AE3C70081F0A7430001F37BD /* cursor-circle.pdf */,
+				AE3C70091F0A7430001F37BD /* cursor-default.pdf */,
+				AE3C700A1F0A7430001F37BD /* cursor-pen.pdf */,
+				AE3C700B1F0A7430001F37BD /* cursor-round-rect.pdf */,
+				AE3C700C1F0A7430001F37BD /* cursor-text.pdf */,
 				AE049F3B1EF015D6003F6BF4 /* brush.png */,
 				AE049F3C1EF015D6003F6BF4 /* brush@2x.png */,
 				AE049F3D1EF015D6003F6BF4 /* eraser.png */,
@@ -1423,13 +1441,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE049F451EF015D6003F6BF4 /* text.png in Resources */,
+				AE3C70111F0A7430001F37BD /* cursor-round-rect.pdf in Resources */,
+				AE3C70121F0A7430001F37BD /* cursor-text.pdf in Resources */,
+				AE3C70101F0A7430001F37BD /* cursor-pen.pdf in Resources */,
 				96F516D70B89DC050047BA96 /* controlKnob.tif in Resources */,
 				AE049F431EF015D6003F6BF4 /* eraser.png in Resources */,
 				96F516D80B89DC050047BA96 /* marker_v_bottom.tif in Resources */,
+				AE3C700D1F0A7430001F37BD /* cursor-arrow.pdf in Resources */,
+				AE3C700E1F0A7430001F37BD /* cursor-circle.pdf in Resources */,
 				96F516D90B89DC050047BA96 /* marker_h_left.tif in Resources */,
 				96F516DA0B89DC050047BA96 /* marker_v_top.tif in Resources */,
 				96F516DB0B89DC050047BA96 /* marker_h_right.tif in Resources */,
 				7633D31F1B7743570093DB40 /* LICENSE.txt in Resources */,
+				AE3C700F1F0A7430001F37BD /* cursor-default.pdf in Resources */,
 				AE049F461EF015D6003F6BF4 /* text@2x.png in Resources */,
 				96F516DC0B89DC050047BA96 /* marker_v_centre.tif in Resources */,
 				96F516DD0B89DC050047BA96 /* marker_h_centre.tif in Resources */,

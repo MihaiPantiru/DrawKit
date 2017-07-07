@@ -232,12 +232,12 @@ static DKToolRegistry* s_toolRegistry = nil;
 
 	// ----- select and edit tool -----
 
-	dt = [[DKSelectAndEditTool alloc] init];
-	[self registerDrawingTool:dt
-					 withName:kDKStandardSelectionToolName];
-	[dt setKeyboardEquivalent:@"e"
-				modifierFlags:0];
-	[dt release];
+//	dt = [[DKSelectAndEditTool alloc] init];
+//	[self registerDrawingTool:dt
+//					 withName:kDKStandardSelectionToolName];
+//	[dt setKeyboardEquivalent:@"e"
+//				modifierFlags:0];
+//	[dt release];
     
     dt = [[DKNoneTool alloc] init];
     [self registerDrawingTool:dt

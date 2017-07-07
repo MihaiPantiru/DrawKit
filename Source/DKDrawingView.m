@@ -1037,16 +1037,10 @@ static Class s_textEditorClass = Nil;
 
  The controller will supply a cursor and an active rect to apply it in
  */
-- (void)resetCursorRects
-{
-	NSCursor* curs = [[self controller] cursor];
-	NSRect cr = [[self controller] activeCursorRect];
-
-	cr = NSIntersectionRect(cr, [self visibleRect]);
-
-	[self addCursorRect:cr
-				 cursor:curs];
-	[curs setOnMouseEntered:YES];
+- (void)resetCursorRects {
+    NSCursor *curs = [[self controller] cursor];
+    [super resetCursorRects];
+    [self addCursorRect:self.bounds cursor:curs];
 }
 
 /** @brief Create a menu that is used for a right-click in the view

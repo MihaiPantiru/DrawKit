@@ -14,6 +14,7 @@
 #import "DKSelectAndEditTool.h"
 #import "LogEvent.h"
 #import "DKTextShape.h"
+#import "DKShapeFactory.h"
 
 #pragma mark Contants(Non - localized)
 NSString* kDKDrawingToolWillMakeNewObjectNotification = @"kDKDrawingToolWillMakeNewObjectNotification";
@@ -377,14 +378,25 @@ static DKStyle* sCreatedObjectsStyle = nil;
  @return the cross-hair cursor
  */
 - (NSCursor*)cursor {
-    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"brush" ofType:@"tiff"];
-    if ([m_prototypeObject isKindOfClass:[DKTextShape class]]) {
-        resourcePath = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"tiff"];
-    }
+    NSBundle *dkBundle = [NSBundle bundleForClass:[self class]];
+    NSString *resourcePath = [dkBundle pathForResource:@"cursor-round-rect" ofType:@"pdf"];
     
+    DKDrawingTool *tool = self;
+    NSString *toolName = [tool registeredName];
+
+    if ([toolName isEqualToString:@"Text"]) {
+        resourcePath = [dkBundle pathForResource:@"cursor-text" ofType:@"pdf"];
+    } else if ([toolName isEqualToString:@"Oval"]) {
+         resourcePath = [dkBundle pathForResource:@"cursor-circle" ofType:@"pdf"];
+    } else if ([toolName isEqualToString:@"Freehand"]) {
+         resourcePath = [dkBundle pathForResource:@"cursor-pen" ofType:@"pdf"];
+    } else if ([toolName isEqualToString:@"Line"]) {
+        resourcePath = [dkBundle pathForResource:@"cursor-arrow" ofType:@"pdf"];
+    }
+
     NSImage *brushImage = [[NSImage alloc] initWithContentsOfFile:resourcePath];
     NSSize brushImageSize = [brushImage size];
-    NSCursor *brushCursor = [[NSCursor alloc] initWithImage:brushImage hotSpot:NSMakePoint(0.0f, brushImageSize.height - 2.0)];
+    NSCursor *brushCursor = [[NSCursor alloc] initWithImage:brushImage hotSpot:NSMakePoint(5.0, brushImageSize.height - 5.0)];
     return brushCursor;
 }
 
