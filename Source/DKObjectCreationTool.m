@@ -396,7 +396,7 @@ static DKStyle* sCreatedObjectsStyle = nil;
 
     NSImage *brushImage = [[NSImage alloc] initWithContentsOfFile:resourcePath];
     NSSize brushImageSize = [brushImage size];
-    NSCursor *brushCursor = [[NSCursor alloc] initWithImage:brushImage hotSpot:NSMakePoint(5.0, brushImageSize.height - 5.0)];
+    NSCursor *brushCursor = [[NSCursor alloc] initWithImage:brushImage hotSpot:NSMakePoint(10, brushImageSize.height - 10)];
     return brushCursor;
 }
 
