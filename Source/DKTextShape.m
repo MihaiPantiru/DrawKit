@@ -266,8 +266,13 @@ static NSString* sDefault_string = @"Double-click to edit";
 - (void)sizeVerticallyToFitText
 {
     if (![self locked]) {
+        
+        CGFloat oldHeight = self.bounds.size.height;
         NSSize newSize = self.bounds.size;
         newSize.height = [self idealTextSize].height;
+        CGFloat diference = newSize.height - oldHeight;
+        
+        self.location = CGPointMake(self.location.x + 3, self.location.y + diference/2 + 3);
         [self setSize:newSize];
     }
 }
@@ -1459,11 +1464,10 @@ static NSString* sDefault_string = @"Double-click to edit";
 
 	if (size.height <= 0 || size.width <= 0) {
 		NSSize offset = [self offset];
-		[self setDragAnchorToPart:kDKDrawableShapeObjectCentre];
-		[self setSize:NSMakeSize(250, [self fontSize] + 6)];
+		[self setDragAnchorToPart:kDKDrawableShapeBottomLeftHandle];
+		[self setSize:NSMakeSize(230, [self fontSize] + 6)];
 		[self setOffset:offset];
 
-		//[self setText:@""];
 		[self editText:self];
 	}
 }
@@ -1673,10 +1677,6 @@ static NSString* sDefault_string = @"Double-click to edit";
 {
 #pragma unused(aNotification)
 	[self endEditing];
-    
-    NSLog(@"textView did end editing");
-    
-    
 }
 
 - (void)textWillChange:(NSNotification*)note
@@ -1688,9 +1688,6 @@ static NSString* sDefault_string = @"Double-click to edit";
 {
 	// this allows the texview to act as a special field editor. Return + Enter complete text editing, but Tab does not. Also, for convenience to
 	// Windows switchers, Shift+Return/Shift+Enter insert new lines.
-
-    
-     NSLog(@"textView Selector method is (%@)", NSStringFromSelector( selector ) );
     
 	if (tv == m_editorRef) {
 		NSEvent* evt = [NSApp currentEvent];
@@ -1713,7 +1710,7 @@ static NSString* sDefault_string = @"Double-click to edit";
 }
 
 - (void)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector {
-    NSLog(@" control Selector method is (%@)", NSStringFromSelector( commandSelector ) );
+//    NSLog(@" control Selector method is (%@)", NSStringFromSelector( commandSelector ) );
 }
 
 #pragma mark -
