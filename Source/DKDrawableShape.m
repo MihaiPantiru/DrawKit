@@ -1882,12 +1882,12 @@ static NSSize sTempSavedOffset;
 
 			// add allowance for the style and angle
 
-			NSSize as = [self extraSpaceNeeded];
+//			NSSize as = [self extraSpaceNeeded];
 			// also make a small allowance for the rotation of the shape - this allows for the
 			// hypoteneuse of corners
 
-			CGFloat f = ABS(sinf([self angle] * 1.0)) * (MAX([[self style] maxStrokeWidth] * 0.5f, 1.0) * 0.25);
-			mBoundsCache = NSInsetRect(r, -(as.width + f), -(as.height + f));
+//			CGFloat f = ABS(sinf([self angle] * 1.0)) * (MAX([[self style] maxStrokeWidth] * 0.5f, 1.0) * 0.25);
+            mBoundsCache = r; //NSInsetRect(r, -(as.width + f), -(as.height + f));
 		}
 	}
 

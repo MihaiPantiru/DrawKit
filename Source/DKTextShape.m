@@ -265,8 +265,11 @@ static NSString* sDefault_string = @"Double-click to edit";
  */
 - (void)sizeVerticallyToFitText
 {
-	if (![self locked])
-		[self setSize:[self idealTextSize]];
+    if (![self locked]) {
+        NSSize newSize = self.bounds.size;
+        newSize.height = [self idealTextSize].height;
+        [self setSize:newSize];
+    }
 }
 
 #pragma mark -
@@ -753,6 +756,10 @@ static NSString* sDefault_string = @"Double-click to edit";
         
         
 	}
+    
+    if ([self idealTextSize].height > self.bounds.size.height) {
+        [self sizeVerticallyToFitText];
+    }
 }
 
 - (BOOL)isEditing

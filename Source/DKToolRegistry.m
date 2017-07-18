@@ -144,8 +144,8 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[shape release];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardRectangleToolName];
-	[dt setKeyboardEquivalent:@"r"
-				modifierFlags:0];
+//	[dt setKeyboardEquivalent:@"r"
+//				modifierFlags:0];
 	[dt release];
 
 	// -------- oval -------
@@ -156,8 +156,8 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[shape release];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardOvalToolName];
-	[dt setKeyboardEquivalent:@"o"
-				modifierFlags:0];
+//	[dt setKeyboardEquivalent:@"o"
+//				modifierFlags:0];
 	[dt release];
 
 	// ------ text shape ------
@@ -169,8 +169,8 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[tshape release];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardTextBoxToolName];
-	[dt setKeyboardEquivalent:@"t"
-				modifierFlags:0];
+//	[dt setKeyboardEquivalent:@"t"
+//				modifierFlags:0];
 	[dt release];
 
 	//-------- line ---------
@@ -182,8 +182,8 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[path release];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardStraightLinePathToolName];
-	[dt setKeyboardEquivalent:@"a"
-				modifierFlags:0];
+//	[dt setKeyboardEquivalent:@"a"
+//				modifierFlags:0];
 	[dt release];
 
 	//-------- polygon ---------
@@ -208,8 +208,8 @@ static DKToolRegistry* s_toolRegistry = nil;
 	[path release];
 	[self registerDrawingTool:dt
 					 withName:kDKStandardFreehandPathToolName];
-	[dt setKeyboardEquivalent:@"b"
-				modifierFlags:0];
+//	[dt setKeyboardEquivalent:@"b"
+//				modifierFlags:0];
 	[dt release];
 
 	//-------- regular polygon ---------
@@ -242,8 +242,8 @@ static DKToolRegistry* s_toolRegistry = nil;
     dt = [[DKNoneTool alloc] init];
     [self registerDrawingTool:dt
                      withName:kDKStandardNoneToolName];
-    [dt setKeyboardEquivalent:@"v"
-                modifierFlags:0];
+//    [dt setKeyboardEquivalent:@"v"
+//                modifierFlags:0];
     [dt release];
 }
 

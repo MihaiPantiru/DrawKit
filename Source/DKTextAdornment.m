@@ -80,8 +80,7 @@ static CGFloat s_maximumVerticalOffset = DEFAULT_BASELINE_OFFSET_MAX;
 	if (dta == nil) {
 		dta = [[NSMutableDictionary alloc] init];
 
-		NSFont* font = [NSFont fontWithName:@"Helvetica"
-									   size:14];
+		NSFont* font = [NSFont systemFontOfSize:32];
 		[dta setObject:font
 				forKey:NSFontAttributeName];
 
@@ -1128,7 +1127,7 @@ static CGFloat s_maximumVerticalOffset = DEFAULT_BASELINE_OFFSET_MAX;
 	if ([contents length] > 0) {
 		NSSize osize = obj ? [obj size] : [path bounds].size;
 
-		DKBezierTextContainer* bc = [[lm textContainers] lastObject];
+		DKBezierTextContainer* bc = (DKBezierTextContainer *)[[lm textContainers] lastObject];
 
 		if ([self layoutMode] == kDKTextLayoutFlowedInPath) {
 			// if the text angle is rel to the object, the layout path should be the unrotated path
