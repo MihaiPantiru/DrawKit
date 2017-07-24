@@ -1461,15 +1461,19 @@ static NSString* sDefault_string = @"Double-click to edit";
 #pragma unused(tool, p)
 
 	NSSize size = [self size];
-
-	if (size.height <= 0 || size.width <= 0) {
+    
+	if (size.height == 0 || size.width == 0) {
 		NSSize offset = [self offset];
 		[self setDragAnchorToPart:kDKDrawableShapeBottomLeftHandle];
 		[self setSize:NSMakeSize(230, [self fontSize] + 6)];
 		[self setOffset:offset];
+    } else {
+        if (size.height < 0) size.height = -size.height;
+        if (size.width < 0) size.width = -size.width;
+        [self setSize: size];
+    }
 
-		[self editText:self];
-	}
+    [self editText:self];
 }
 
 /** @brief Copies the object's style to the general pasteboard

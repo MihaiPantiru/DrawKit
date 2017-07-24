@@ -1218,6 +1218,7 @@ static Class s_textEditorClass = Nil;
 - (void)flagsChanged:(NSEvent*)event
 {
 	[[self controller] flagsChanged:event];
+    [super flagsChanged:event];
 }
 
 /** @brief Do the command requested
