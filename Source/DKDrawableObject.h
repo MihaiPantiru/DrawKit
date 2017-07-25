@@ -56,6 +56,8 @@ to attach arbitrary data to any drawable object.
 	BOOL m_unused_padding : 4; // not used - reserved
 }
 
+@property (nonatomic, strong) NSString *typeValue;
+
 /** @brief Return whether an info floater is displayed when resizing an object
 
  Size info is width and height

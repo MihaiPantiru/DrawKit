@@ -434,7 +434,7 @@ static DKStyle* sCreatedObjectsStyle = nil;
 	if ([layer isKindOfClass:[DKObjectOwnerLayer class]]) {
         // mihai.pantiru: If object selected prevent draw something else
         BOOL isArrow = [obj isKindOfClass:[DKDrawablePath class]] && [obj objectMayBecomeSelected];
-        if (obj && (![obj isKindOfClass:[DKDrawablePath class]] || isArrow)) {
+        if (obj && (![obj isKindOfClass:[DKDrawablePath class]] || isArrow) && [obj.typeValue isEqualToString:[self registeredName]]) {
             
             mPartcode = [obj hitPart:p];
             
@@ -744,19 +744,26 @@ static void dragFunction_mouseUp(const void* obj, void* context) {
     NSArray* sel = nil;
     DKDrawableObject* obj;
     NSDictionary* userInfoDict = [NSDictionary dictionaryWithObjectsAndKeys:odl, kDKSelectionToolTargetLayer, [odl singleSelection], kDKSelectionToolTargetObject, nil];
-    BOOL extended = (([event modifierFlags] & NSShiftKeyMask) != 0);
+//    BOOL extended = (([event modifierFlags] & NSShiftKeyMask) != 0);
     
     switch ([self operationMode]) {
         case kDKEditToolInvalidMode:
-        case kDKEditToolSelectionMode:
-        default:
-            
-//            BOOL controlKey = ([event modifierFlags] & NSControlKeyMask) != 0;
-//            p = [[layer drawing] snapToGrid:p
-//                            withControlFlag:controlKey];
             
             [self setDraggedObjects:nil];
-            return [self finishCreation:aDel];
+            
+            BOOL value = [self finishCreation:aDel];
+            
+            obj = [odl singleSelection];
+            obj.typeValue = [self registeredName];
+            
+            return value;
+
+            break;
+            
+        case kDKEditToolSelectionMode:
+        default:
+            [self setDraggedObjects:nil];
+            return [self finishCreation:aDel];;
             
             break;
             
